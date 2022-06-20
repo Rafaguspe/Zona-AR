@@ -7,8 +7,8 @@ using TMPro;
 
 public class Manager : MonoBehaviour
 {
-	public GameObject Inicio,Mapa2D,infoEmpresa;
-	public Button btn2D,btn3D,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,BtnAtras,BtnAtrasMap,
+	public GameObject Inicio,Mapa2D,infoEmpresa,ZonaFranca;
+	public Button btn2D,btn3D,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,BtnAtras,BtnAtrasMap,BtnAtras3d,
 		btnleyd1,btnleyd2,btnleyd3,btnleyd4,btnleyd5,btnleyd6,btnleyd7,btnleyd8;
     
 	
@@ -22,6 +22,8 @@ public class Manager : MonoBehaviour
     {
 	    Inicio.SetActive(true);
 	    Mapa2D.SetActive(false);
+	    infoEmpresa.SetActive(false);
+	    ZonaFranca.SetActive(false);
 	    BtnAtras.onClick.AddListener(()=> back());
 	    
 	    btn1.onClick.AddListener(()=> Empresa(1));
@@ -50,6 +52,8 @@ public class Manager : MonoBehaviour
 	    btnleyd8.onClick.AddListener(()=> Empresa(8));
 	    
 	    btn2D.onClick.AddListener(()=> IRmapa2D());
+	    btn3D.onClick.AddListener(()=> IRmapa3D());
+	    BtnAtras3d.onClick.AddListener(()=> Start());
 	    //  btn2D.onClick.AddListener(()=> Categoria(1));
         
         
@@ -64,6 +68,18 @@ public class Manager : MonoBehaviour
 		infoEmpresa.SetActive(false);
 		
 	}//Fin IRmapa2D
+	
+	
+	
+	void IRmapa3D()
+	{
+		Inicio.SetActive(false);
+		Mapa2D.SetActive(false);
+		infoEmpresa.SetActive(false);
+		ZonaFranca.SetActive(true);
+	
+		
+	}//Fin IRmapa3D
 
 	void back()
 	{
