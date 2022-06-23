@@ -7,10 +7,13 @@ using TMPro;
 
 public class Manager : MonoBehaviour
 {
-	public GameObject Inicio,Mapa2D,infoEmpresa,ZonaFranca;
+	public GameObject Inicio,Mapa2D,infoEmpresa,ZonaFranca,Dispensario,FondoDispensario;
 	public Button btn2D,btn3D,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,BtnAtras,BtnAtrasMap,BtnAtras3d,
 		btnleyd1,btnleyd2,btnleyd3,btnleyd4,btnleyd5,btnleyd6,btnleyd7,btnleyd8;
     
+	
+	
+	
 	
 	public Sprite [] FotoEmpresa;
 	
@@ -18,12 +21,26 @@ public class Manager : MonoBehaviour
 	
 	public TMP_Text Descripcion;
     
+    
+	/// <Modelos>
+	
+	public Transform objeto;
+	public Button BtnDispensario;
+	
+	
+	/// </Modelos>
+    
+    
+    
+    
+    
     void Start()
     {
 	    Inicio.SetActive(true);
 	    Mapa2D.SetActive(false);
 	    infoEmpresa.SetActive(false);
 	    ZonaFranca.SetActive(false);
+	    FondoDispensario.SetActive(false);
 	    BtnAtras.onClick.AddListener(()=> back());
 	    
 	    btn1.onClick.AddListener(()=> Empresa(1));
@@ -52,6 +69,11 @@ public class Manager : MonoBehaviour
 	    btnleyd8.onClick.AddListener(()=> Empresa(8));
 	    
 	    btn2D.onClick.AddListener(()=> IRmapa2D());
+	    
+	    BtnDispensario.onClick.AddListener(()=> InfoDis());
+	    
+	    
+	    
 	    btn3D.onClick.AddListener(()=> IRmapa3D());
 	    BtnAtras3d.onClick.AddListener(()=> Start());
 	    //  btn2D.onClick.AddListener(()=> Categoria(1));
@@ -77,6 +99,7 @@ public class Manager : MonoBehaviour
 		Mapa2D.SetActive(false);
 		infoEmpresa.SetActive(false);
 		ZonaFranca.SetActive(true);
+		objeto=Dispensario.transform;
 	
 		
 	}//Fin IRmapa3D
@@ -160,6 +183,47 @@ public class Manager : MonoBehaviour
 		}// fin switch
 		
 	}//fin empresa
+
+
+	private void Update()
+	{
+		// si hay un dedo pulsando la pantalla
+		
+		if (Input.touchCount ==1)
+		{
+			//variable para el dedo que toca la pantalla
+			Touch dedo = Input.GetTouch(0);
+			
+			
+			// si ese dedo se movio
+			if (dedo.phase == TouchPhase.Moved)
+			{
+				// roto el objeto en funcion a la posicion en X en la que se movio
+				objeto.transform.Rotate(0f,dedo.deltaPosition.x,0f);
+				
+				
+			}
+			{
+				
+			}
+		}
+	}
+
+
+	void InfoDis()
+	{
+		if (FondoDispensario.activeSelf==false)
+		{
+			FondoDispensario.SetActive(true);
+		}
+		else{
+			FondoDispensario.SetActive(false);
+		}
+		
+	}
+
+
+
 
 
    
