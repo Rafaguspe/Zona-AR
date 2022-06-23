@@ -7,7 +7,7 @@ using TMPro;
 
 public class Manager : MonoBehaviour
 {
-	public GameObject Inicio,Mapa2D,infoEmpresa,ZonaFranca,Dispensario,FondoDispensario;
+	public GameObject Inicio,Mapa2D,infoEmpresa,ZonaFranca,Dispensario,PF;
 	public Button btn2D,btn3D,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,BtnAtras,BtnAtrasMap,BtnAtras3d,
 		btnleyd1,btnleyd2,btnleyd3,btnleyd4,btnleyd5,btnleyd6,btnleyd7,btnleyd8;
     
@@ -40,7 +40,8 @@ public class Manager : MonoBehaviour
 	    Mapa2D.SetActive(false);
 	    infoEmpresa.SetActive(false);
 	    ZonaFranca.SetActive(false);
-	    FondoDispensario.SetActive(false);
+	    PF.SetActive(true);
+	    // FondoDispensario.SetActive(false);
 	    BtnAtras.onClick.AddListener(()=> back());
 	    
 	    btn1.onClick.AddListener(()=> Empresa(1));
@@ -70,7 +71,7 @@ public class Manager : MonoBehaviour
 	    
 	    btn2D.onClick.AddListener(()=> IRmapa2D());
 	    
-	    BtnDispensario.onClick.AddListener(()=> InfoDis());
+	    //  BtnDispensario.onClick.AddListener(()=> InfoDis());
 	    
 	    
 	    
@@ -210,18 +211,7 @@ public class Manager : MonoBehaviour
 	}
 
 
-	void InfoDis()
-	{
-		if (FondoDispensario.activeSelf==false)
-		{
-			FondoDispensario.SetActive(true);
-		}
-		else{
-			FondoDispensario.SetActive(false);
-		}
-		
-	}
-
+	
 
 
 

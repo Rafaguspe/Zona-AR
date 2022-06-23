@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44402182, g: 0.49316454, b: 0.5722313, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -319,7 +319,7 @@ MonoBehaviour:
   infoEmpresa: {fileID: 40254151}
   ZonaFranca: {fileID: 1536958430}
   Dispensario: {fileID: 1664694190}
-  FondoDispensario: {fileID: 0}
+  PF: {fileID: 1913582250}
   btn2D: {fileID: 1798586006}
   btn3D: {fileID: 1550045487}
   btn1: {fileID: 332239824}
@@ -4783,7 +4783,19 @@ MonoBehaviour:
   DuplicateStage: 0
   OnContentPlaced:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913582250}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   mDisplayAdvanced: 1
 --- !u!114 &1913582253
 MonoBehaviour:
