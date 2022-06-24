@@ -30,8 +30,7 @@ public class Manager : MonoBehaviour
 	
 	/// </Modelos>
     
-    
-    
+  
     
     
     void Start()
@@ -79,7 +78,12 @@ public class Manager : MonoBehaviour
 	    BtnAtras3d.onClick.AddListener(()=> Start());
 	    //  btn2D.onClick.AddListener(()=> Categoria(1));
         
-        
+	  
+	    
+	
+	    
+	    
+	    
     }
 
 
@@ -101,6 +105,8 @@ public class Manager : MonoBehaviour
 		infoEmpresa.SetActive(false);
 		ZonaFranca.SetActive(true);
 		objeto=Dispensario.transform;
+	
+	
 	
 		
 	}//Fin IRmapa3D
@@ -188,12 +194,14 @@ public class Manager : MonoBehaviour
 
 	private void Update()
 	{
-		// si hay un dedo pulsando la pantalla
 		
-		if (Input.touchCount ==1)
+		
+		// si hay dos dedo pulsando la pantalla
+		
+		if (Input.touchCount ==2)
 		{
 			//variable para el dedo que toca la pantalla
-			Touch dedo = Input.GetTouch(0);
+			Touch dedo = Input.GetTouch(1);
 			
 			
 			// si ese dedo se movio
@@ -204,12 +212,39 @@ public class Manager : MonoBehaviour
 				
 				
 			}
-			{
-				
-			}
+		
 		}
-	}
+		// // // // // // // // // // // // // // // // / //
+		
+		
+		// si hay dos dedo pulsando la pantalla
+		
+		if (Input.touchCount ==1)
+		{
+			//variable para el dedo que toca la pantalla
+			Touch dedo = Input.GetTouch(0);
+			
+			
+			// si ese dedo se movio
+			//	if (dedo.phase == TouchPhase.Began)
+			//	{
+				//		Ray ray= arCamera.ScreenPointToRay(dedo.position);
+			//	}
+			
+		}
+		
+		
+		
+		
+		
+		
+	}// fin Update
 
+
+	void GirarModelo()
+	{
+		objeto.transform.Rotate(0f,10f,0f);
+	}// fin Girar Modelo
 
 	
 
