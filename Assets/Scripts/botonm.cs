@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Botonesdelscroll : MonoBehaviour
+public class botonm : MonoBehaviour
 {
 	public Button flechaDerecha, flechaizquierda;
 	public GameObject Contenedor;
