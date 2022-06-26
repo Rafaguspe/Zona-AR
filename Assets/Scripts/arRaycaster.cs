@@ -8,14 +8,14 @@ public class arRaycaster : MonoBehaviour {
     
 
 	public GameObject penderPanel;
-	public GameObject penderPANELsECONDS;
+	//public GameObject penderPANELsECONDS;
 	public GameObject objetoIns;
 	bool activo=false;
 	
 	
 	
-	[SerializeField] float RotationSpeed = 2f;
-	bool dragging = false;
+	//[SerializeField] float RotationSpeed = 2f;
+	//bool dragging = false;
 	Rigidbody rb; 
 	
 	
@@ -41,17 +41,17 @@ public class arRaycaster : MonoBehaviour {
        
 	}
 	
-	void OnMouseDrag()
-	{
-		dragging = true;
-	}
+	//void OnMouseDrag()
+	//	{
+	//		dragging = true;
+	//	}
 	
 	void Update() {
 		
-		if(Input.GetMouseButtonUp (0))
-		{
-			dragging = false; 
-		}
+		//	if(Input.GetMouseButtonUp (0))
+		//	{
+		//		dragging = false; 
+		//	}
 		
 		
 		
@@ -87,8 +87,9 @@ public class arRaycaster : MonoBehaviour {
 					
 					
 					//hitObject.transform.localScale *= 1.2f;
-					if(activo==false&&nam=="01objeCondatos"||activo==false&&nam=="02objeCondatos"||activo==false&&nam=="03AzulobjeCondatos"||activo==false&&nam=="04AzulNormalobjeCondatos"||activo==false&&nam=="05AmbarEscarabajo"||activo==false&&nam=="06Ambar Flores"||activo==false&&nam=="07Ambar Lagarto"||activo==false&&nam=="08Ambar Mantis"||activo==false&&nam=="09Ambar Mosquito"||activo==false&&nam=="10Ambar Musgo"||activo==false&&nam=="11Ambar Pelos"){
-						penderPanel=hitObject.transform.GetChild(1).gameObject;
+					if(activo==false&&nam=="BtnAurora")//||activo==false&&nam=="02objeCondatos"||activo==false&&nam=="03AzulobjeCondatos"||activo==false&&nam=="04AzulNormalobjeCondatos"||activo==false&&nam=="05AmbarEscarabajo"||activo==false&&nam=="06Ambar Flores"||activo==false&&nam=="07Ambar Lagarto"||activo==false&&nam=="08Ambar Mantis"||activo==false&&nam=="09Ambar Mosquito"||activo==false&&nam=="10Ambar Musgo"||activo==false&&nam=="11Ambar Pelos"){
+					{
+						//penderPanel=hitObject.transform.GetChild(1).gameObject;
 						penderPanel.SetActive(true);
 						
 						//penderPANELsECONDS=hitObject.transform.GetChild(2).gameObject;
@@ -96,12 +97,14 @@ public class arRaycaster : MonoBehaviour {
 						
 						
 						
-						objetoIns=hitObject.transform.GetChild(0).gameObject;
+						//				objetoIns=hitObject.transform.GetChild(0).gameObject;
 						rb=objetoIns.GetComponent<Rigidbody>();
 						
 						
 						
-					}else  if(activo==false){
+					}
+					/*
+					else  if(activo==false){
 	        	          
 						if(hitObject.transform.name=="canvasInformacion"){
 							penderPanel=hitObject.transform.gameObject;
@@ -111,18 +114,19 @@ public class arRaycaster : MonoBehaviour {
 						}
 					}
 				}
+				*/
 			}
 		
 			
 			//float X = Input.GetAxis ("Mouse X") * RotationSpeed * Time.fixedDeltaTime;
 			//float y = Input.GetAxis ("Mouse Y") * RotationSpeed * Time.fixedDeltaTime;
 			
-			float X = Input.GetAxis ("Mouse X") * RotationSpeed * Time.deltaTime * Time.deltaTime;
-			float y = Input.GetAxis ("Mouse Y") * RotationSpeed * Time.deltaTime* Time.deltaTime;
+				//	float X = Input.GetAxis ("Mouse X") * RotationSpeed * Time.deltaTime * Time.deltaTime;
+				//	float y = Input.GetAxis ("Mouse Y") * RotationSpeed * Time.deltaTime* Time.deltaTime;
 			
 			
-			rb.AddTorque (Vector3.down*X);
-			rb.AddTorque (Vector3.right*y);
+				//	rb.AddTorque (Vector3.down*X);
+				//	rb.AddTorque (Vector3.right*y);
 	
 			
 	
@@ -186,5 +190,6 @@ public class arRaycaster : MonoBehaviour {
 			yield return 0;
 		}
 		Destroy(line.gameObject);
+	}
 	}
 }

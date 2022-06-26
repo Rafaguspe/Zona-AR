@@ -32,8 +32,8 @@ public class Manager : MonoBehaviour
     
   
   
-	public Button flechaD,FlechaI;
-	public GameObject Contenedor;
+	public Button flechaD,FlechaI,BuscaPlano,Aurora;
+	public GameObject Contenedor,Tuto1,Tuto2,Tuto3;
 
     
     
@@ -78,42 +78,54 @@ public class Manager : MonoBehaviour
 	    
 	    
 	    
-	    btn3D.onClick.AddListener(()=> IRmapa3D());
-	    btnNom3D.onClick.AddListener(()=> IRmapa3D());
+	    btn3D.onClick.AddListener(() => StartCoroutine(IRmapa3D()));
+	    // btnNom3D.onClick.AddListener(()=> IRmapa3D());
+	    btnNom3D.onClick.AddListener(() => StartCoroutine(IRmapa3D()));
 	    BtnAtras3d.onClick.AddListener(()=> Start());
 	    //  btn2D.onClick.AddListener(()=> Categoria(1));
         
 	  
 	    flechaD.onClick.AddListener(()=>MoverD());
 	    FlechaI.onClick.AddListener(()=>MoverI());
-	
-	    
+	    BuscaPlano.onClick.AddListener(()=>PF.SetActive(true));
+	    Aurora.onClick.AddListener(()=>Inicio.SetActive(true));
 	    
 	    
     }
 
 
 
-	void IRmapa2D()
+ void IRmapa2D()
 	{
 		Inicio.SetActive(false);
 		Mapa2D.SetActive(true);
 		infoEmpresa.SetActive(false);
 		
+		
+		
+		
 	}//Fin IRmapa2D
 	
 	
 	
-	void IRmapa3D()
+private IEnumerator IRmapa3D()
 	{
 		Inicio.SetActive(false);
 		Mapa2D.SetActive(false);
 		infoEmpresa.SetActive(false);
 		ZonaFranca.SetActive(true);
 		objeto=Dispensario.transform;
-	
-	
-	
+		
+		Tuto1.SetActive(true);
+		yield return new WaitForSeconds(3);
+		Tuto1.SetActive(false);
+		Tuto2.SetActive(true);
+		yield return new WaitForSeconds(5);
+		Tuto2.SetActive(false);
+		Tuto3.SetActive(true);
+		yield return new WaitForSeconds(10);
+		Tuto3.SetActive(false);
+		
 		
 	}//Fin IRmapa3D
 
