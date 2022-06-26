@@ -31,6 +31,10 @@ public class Manager : MonoBehaviour
 	/// </Modelos>
     
   
+  
+	public Button flechaD,FlechaI;
+	public GameObject Contenedor;
+
     
     
     void Start()
@@ -79,7 +83,8 @@ public class Manager : MonoBehaviour
 	    //  btn2D.onClick.AddListener(()=> Categoria(1));
         
 	  
-	    
+	    flechaD.onClick.AddListener(()=>MoverD());
+	    FlechaI.onClick.AddListener(()=>MoverI());
 	
 	    
 	    
@@ -248,8 +253,16 @@ public class Manager : MonoBehaviour
 
 	
 
+	void MoverD()
+	{
+		Debug.Log(Contenedor.transform.position);
+		Contenedor.transform.position = new	Vector3(-1000,363,0f);
+	}
 
-
-
+	void MoverI()
+	{
+		Debug.Log(Contenedor.transform.position);
+		Contenedor.transform.position = new	Vector3(2500,363,0f);
+	}
    
 }// fin de public 
