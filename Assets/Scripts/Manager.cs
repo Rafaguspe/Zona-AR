@@ -9,7 +9,7 @@ public class Manager : MonoBehaviour
 {
 	public GameObject Inicio,Mapa2D,infoEmpresa,ZonaFranca,Dispensario,PF;
 	public Button btn2D,btn3D,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,BtnAtras,BtnAtrasMap,BtnAtras3d,
-		btnleyd1,btnleyd2,btnleyd3,btnleyd4,btnleyd5,btnleyd6,btnleyd7,btnleyd8;
+		btnleyd1,btnleyd2,btnleyd3,btnleyd4,btnleyd5,btnleyd6,btnleyd7,btnleyd8,btnNom2D,btnNom3D;
     
 	
 	
@@ -73,12 +73,13 @@ public class Manager : MonoBehaviour
 	    btnleyd8.onClick.AddListener(()=> Empresa(8));
 	    
 	    btn2D.onClick.AddListener(()=> IRmapa2D());
-	    
+	    btnNom2D.onClick.AddListener(()=> IRmapa2D());
 	    //  BtnDispensario.onClick.AddListener(()=> InfoDis());
 	    
 	    
 	    
 	    btn3D.onClick.AddListener(()=> IRmapa3D());
+	    btnNom3D.onClick.AddListener(()=> IRmapa3D());
 	    BtnAtras3d.onClick.AddListener(()=> Start());
 	    //  btn2D.onClick.AddListener(()=> Categoria(1));
         
