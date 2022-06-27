@@ -33,8 +33,8 @@ public class Manager : MonoBehaviour
   
   
 	public Button flechaD,FlechaI,BuscaPlano,Aurora;
-	public GameObject Contenedor,Tuto1,Tuto2,Tuto3;
-
+	public GameObject Contenedor,Tuto1,Tuto2,Tuto3,Reubica,Atras3D;
+	int tuto=0;
     
     
     void Start()
@@ -88,7 +88,7 @@ public class Manager : MonoBehaviour
 	    flechaD.onClick.AddListener(()=>MoverD());
 	    FlechaI.onClick.AddListener(()=>MoverI());
 	    BuscaPlano.onClick.AddListener(()=>PF.SetActive(true));
-	    Aurora.onClick.AddListener(()=>Inicio.SetActive(true));
+	   
 	    
 	    
     }
@@ -100,6 +100,7 @@ public class Manager : MonoBehaviour
 		Inicio.SetActive(false);
 		Mapa2D.SetActive(true);
 		infoEmpresa.SetActive(false);
+		ZonaFranca.SetActive(false);
 		
 		
 		
@@ -116,15 +117,21 @@ private IEnumerator IRmapa3D()
 		ZonaFranca.SetActive(true);
 		objeto=Dispensario.transform;
 		
-		Tuto1.SetActive(true);
-		yield return new WaitForSeconds(3);
-		Tuto1.SetActive(false);
-		Tuto2.SetActive(true);
-		yield return new WaitForSeconds(5);
-		Tuto2.SetActive(false);
-		Tuto3.SetActive(true);
-		yield return new WaitForSeconds(10);
-		Tuto3.SetActive(false);
+		
+		if (tuto<=0)
+		{
+			Tuto1.SetActive(true);
+			yield return new WaitForSeconds(3);
+			Tuto1.SetActive(false);
+			Tuto2.SetActive(true);
+			yield return new WaitForSeconds(5);
+			Tuto2.SetActive(false);
+			Tuto3.SetActive(true);
+			yield return new WaitForSeconds(10);
+			Tuto3.SetActive(false);
+			tuto=1;
+		}
+		
 		
 		
 	}//Fin IRmapa3D
@@ -133,14 +140,17 @@ private IEnumerator IRmapa3D()
 	{
 		Mapa2D.SetActive(false);	
 		infoEmpresa.SetActive(false);
+		ZonaFranca.SetActive(false);
 		Inicio.SetActive(true);
 	}// fin back
 
 
-	void Empresa(int emp)
+	public	void Empresa(int emp)
 	{
+		Inicio.SetActive(false);
 		Mapa2D.SetActive(false);	
 		infoEmpresa.SetActive(true);
+		ZonaFranca.SetActive(false);
 		BtnAtrasMap.onClick.AddListener(()=> IRmapa2D());
 		switch (emp)
 		{
@@ -234,28 +244,7 @@ private IEnumerator IRmapa3D()
 		}
 		// // // // // // // // // // // // // // // // / //
 		
-		
-		// si hay dos dedo pulsando la pantalla
-		
-		if (Input.touchCount ==1)
-		{
-			//variable para el dedo que toca la pantalla
-			Touch dedo = Input.GetTouch(0);
-			
-			
-			// si ese dedo se movio
-			//	if (dedo.phase == TouchPhase.Began)
-			//	{
-				//		Ray ray= arCamera.ScreenPointToRay(dedo.position);
-			//	}
-			
-		}
-		
-		
-		
-		
-		
-		
+	
 	}// fin Update
 
 
