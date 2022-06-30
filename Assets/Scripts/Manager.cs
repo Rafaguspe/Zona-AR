@@ -35,10 +35,13 @@ public class Manager : MonoBehaviour
 	public Button flechaD,FlechaI,BuscaPlano,Aurora;
 	public GameObject Contenedor,Tuto1,Tuto2,Tuto3,Reubica,Atras3D;
 	int tuto=0;
+	public int ventana;
+	
     
     
     void Start()
-    {
+	{
+		ventana=1;
 	    Inicio.SetActive(true);
 	    Mapa2D.SetActive(false);
 	    infoEmpresa.SetActive(false);
@@ -47,30 +50,30 @@ public class Manager : MonoBehaviour
 	    // FondoDispensario.SetActive(false);
 	    BtnAtras.onClick.AddListener(()=> back());
 	    
-	    btn1.onClick.AddListener(()=> Empresa(1));
-	    btnleyd1.onClick.AddListener(()=> Empresa(1));
+		btn1.onClick.AddListener(()=> Empresa(1,4));
+	    btnleyd1.onClick.AddListener(()=> Empresa(1,4));
 	    
-	    btn2.onClick.AddListener(()=> Empresa(2));
-	    btnleyd2.onClick.AddListener(()=> Empresa(2));
+	    btn2.onClick.AddListener(()=> Empresa(2,4));
+	    btnleyd2.onClick.AddListener(()=> Empresa(2,4));
 	    
-	    btn3.onClick.AddListener(()=> Empresa(3));
-	    btnleyd3.onClick.AddListener(()=> Empresa(3));
+	    btn3.onClick.AddListener(()=> Empresa(3,4));
+	    btnleyd3.onClick.AddListener(()=> Empresa(3,4));
 	    
-	    btn4.onClick.AddListener(()=> Empresa(4));
-	    btnleyd4.onClick.AddListener(()=> Empresa(4));
+	    btn4.onClick.AddListener(()=> Empresa(4,4));
+	    btnleyd4.onClick.AddListener(()=> Empresa(4,4));
 	    
-	    btn5.onClick.AddListener(()=> Empresa(5));
-	    btnleyd5.onClick.AddListener(()=> Empresa(5));
+	    btn5.onClick.AddListener(()=> Empresa(5,4));
+	    btnleyd5.onClick.AddListener(()=> Empresa(5,4));
 	    
-	    btn6.onClick.AddListener(()=> Empresa(6));
-	    btnleyd6.onClick.AddListener(()=> Empresa(6));
+	    btn6.onClick.AddListener(()=> Empresa(6,4));
+	    btnleyd6.onClick.AddListener(()=> Empresa(6,4));
 	    
-	    btn7.onClick.AddListener(()=> Empresa(7));
-	    btnleyd7.onClick.AddListener(()=> Empresa(7));
+	    btn7.onClick.AddListener(()=> Empresa(7,4));
+	    btnleyd7.onClick.AddListener(()=> Empresa(7,4));
 	    
 	    
-	    btn8.onClick.AddListener(()=> Empresa(8));
-	    btnleyd8.onClick.AddListener(()=> Empresa(8));
+	    btn8.onClick.AddListener(()=> Empresa(8,4));
+	    btnleyd8.onClick.AddListener(()=> Empresa(8,4));
 	    
 	    btn2D.onClick.AddListener(()=> IRmapa2D());
 	    btnNom2D.onClick.AddListener(()=> IRmapa2D());
@@ -95,8 +98,9 @@ public class Manager : MonoBehaviour
 
 
 
- void IRmapa2D()
+ public void IRmapa2D()
 	{
+		ventana=2;
 		Inicio.SetActive(false);
 		Mapa2D.SetActive(true);
 		infoEmpresa.SetActive(false);
@@ -109,8 +113,9 @@ public class Manager : MonoBehaviour
 	
 	
 	
-private IEnumerator IRmapa3D()
+	public IEnumerator IRmapa3D()
 	{
+		ventana=3;
 		Inicio.SetActive(false);
 		Mapa2D.SetActive(false);
 		infoEmpresa.SetActive(false);
@@ -136,7 +141,7 @@ private IEnumerator IRmapa3D()
 		
 	}//Fin IRmapa3D
 
-	void back()
+	public void back()
 	{
 		Mapa2D.SetActive(false);	
 		infoEmpresa.SetActive(false);
@@ -145,13 +150,15 @@ private IEnumerator IRmapa3D()
 	}// fin back
 
 
-	public	void Empresa(int emp)
+	public	void Empresa(int emp,int ven)
 	{
+		ventana=ven;
 		Inicio.SetActive(false);
 		Mapa2D.SetActive(false);	
 		infoEmpresa.SetActive(true);
 		ZonaFranca.SetActive(false);
 		BtnAtrasMap.onClick.AddListener(()=> IRmapa2D());
+		
 		switch (emp)
 		{
 		
@@ -266,5 +273,16 @@ private IEnumerator IRmapa3D()
 		Debug.Log(Contenedor.transform.position);
 		Contenedor.transform.position = new	Vector3(2500,363,0f);
 	}
+	
+	public	void Volver3D()
+	{
+		//	Reubica.SetActive(true);
+		//	Atras3D.SetActive(true);
+		infoEmpresa.SetActive(false);
+		Mapa2D.SetActive(false);
+		Inicio.SetActive(false);
+		ZonaFranca.SetActive(true);
+		
+	} 
    
 }// fin de public 

@@ -19,15 +19,15 @@ public class arRaycaster : MonoBehaviour {
 	//bool dragging = false;
 	Rigidbody rb; 
 	
-	public GameObject Inicio,Mapa2D,infoEmpresa,ZonaFranca,Dispensario,PF;
-	public Sprite [] FotoEmpresa;
+	//	public GameObject Inicio,Mapa2D,infoEmpresa,ZonaFranca,Dispensario,PF;
+	//	public Sprite [] FotoEmpresa;
 	
-	public Image Foto;
+	//	public Image Foto;
 	
-	public TMP_Text Descripcion;
+	//	public TMP_Text Descripcion;
 	
 	
-	public Button BtnAtrasMap;
+	//	public Button BtnAtrasMap;
 	
 	
 	
@@ -39,9 +39,15 @@ public class arRaycaster : MonoBehaviour {
 	private Material lineMaterial;
 	private LineRenderer viewLine;
 	private LineRenderer touchLine;
+	
+	
+	Manager mana;
+	
+	
 	void Start()
 	{
 		if(arCamera == null)    arCamera = Camera.main;
+		mana=GameObject.FindGameObjectWithTag("TagMana").GetComponent<Manager>();
 		//viewLine = CreateLine("ViewLine", Color.red);
        
 	}
@@ -105,26 +111,23 @@ public class arRaycaster : MonoBehaviour {
 						//					penderPanel.SetActive(true);
 			
 						
-						ZonaFranca.SetActive(false);
+						mana.ZonaFranca.SetActive(false);
 						
 						if (nam=="BtnAurora"||nam=="BtnAurora1"||nam=="BtnAurora2"||nam=="BtnAurora3")
 						{
 										
-							//					Reubica.SetActive(false);
-							//					Atras3D.SetActive(false);
-							Empresa	(4);
-							BtnAtrasMap.onClick.AddListener(()=>Volver3D());
-							Nombre.text="caso1";
+			
+							mana.Empresa	(4,5);
+							mana.BtnAtrasMap.onClick.AddListener(()=>mana.Volver3D());
+			
 						}
 			
 						if (nam=="BtnComedor")
 						{
 										
-							//						Reubica.SetActive(false);
-							//						Atras3D.SetActive(false);
-							Empresa	(1);
-							BtnAtrasMap.onClick.AddListener(()=>Volver3D());
-							Nombre.text="caso1";
+		
+							mana.				Empresa	(1,5);
+							mana.BtnAtrasMap.onClick.AddListener(()=>mana.Volver3D());
 						}
 			
 			
@@ -133,9 +136,8 @@ public class arRaycaster : MonoBehaviour {
 										
 							//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
-							Empresa	(2);
-							BtnAtrasMap.onClick.AddListener(()=>Volver3D());
-							Nombre.text="caso1";
+			mana.				Empresa	(2,5);
+							mana.BtnAtrasMap.onClick.AddListener(()=>mana.Volver3D());
 						}
 			
 			
@@ -144,9 +146,8 @@ public class arRaycaster : MonoBehaviour {
 										
 							//						Reubica.SetActive(false);
 							//						Atras3D.SetActive(false);
-							Empresa	(3);
-							BtnAtrasMap.onClick.AddListener(()=>Volver3D());
-							Nombre.text="caso1";
+			mana.				Empresa	(3,5);
+							mana.BtnAtrasMap.onClick.AddListener(()=>mana.Volver3D());
 						}
 			
 			
@@ -155,9 +156,8 @@ public class arRaycaster : MonoBehaviour {
 										
 							//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
-							Empresa	(6);
-							BtnAtrasMap.onClick.AddListener(()=>Volver3D());
-							Nombre.text="caso1";
+			mana.				Empresa	(6,5);
+							mana.BtnAtrasMap.onClick.AddListener(()=>mana.Volver3D());
 						}
 						
 						if (nam=="BtnLigna")
@@ -165,9 +165,8 @@ public class arRaycaster : MonoBehaviour {
 										
 												//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
-							Empresa	(7);
-							BtnAtrasMap.onClick.AddListener(()=>Volver3D());
-							Nombre.text="caso1";
+							mana.				Empresa	(7,5);
+							mana.BtnAtrasMap.onClick.AddListener(()=>mana.Volver3D());
 						}
 						
 						if (nam=="BtnControlEng")
@@ -175,20 +174,17 @@ public class arRaycaster : MonoBehaviour {
 										
 							//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
-							Empresa	(8);
-							BtnAtrasMap.onClick.AddListener(()=>Volver3D());
-							Nombre.text="caso1";
+			mana.				Empresa	(8,5);
+							mana.BtnAtrasMap.onClick.AddListener(()=>mana.Volver3D());
 						}
 			
 			
 						if (nam=="BtnAdministracion")
 						{
 										
-							//					Reubica.SetActive(false);
-							//					Atras3D.SetActive(false);
-							Empresa	(5);
-							BtnAtrasMap.onClick.AddListener(()=>Volver3D());
-							Nombre.text="caso1";
+		
+							mana.					Empresa	(5,5);
+							mana.BtnAtrasMap.onClick.AddListener(()=>mana.Volver3D());
 						}
 			
 			
@@ -294,7 +290,7 @@ public class arRaycaster : MonoBehaviour {
 	}
 	}
 	
-	
+	/*
 	
 	void Volver3D()
 	{
@@ -380,5 +376,5 @@ public class arRaycaster : MonoBehaviour {
 		
 	}//fin empresa
 	
-	
+	*/
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44402218, g: 0.49316543, b: 0.572232, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402182, g: 0.49316454, b: 0.5722313, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1702574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1702576}
+  - component: {fileID: 1702575}
+  m_Layer: 0
+  m_Name: BtnAtrasAndroid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1702575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0be7f5293ee5af40ab142167af89531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1702576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702574}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -249.92697, y: 632.7885, z: -8.611518}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &40254151
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +483,7 @@ GameObject:
   - component: {fileID: 75404367}
   m_Layer: 0
   m_Name: Manager
-  m_TagString: Untagged
+  m_TagString: TagMana
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -496,6 +540,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7ee2524419cd4434a8185f5ad13c403b, type: 3}
   Foto: {fileID: 724510038}
   Descripcion: {fileID: 1516812311}
+  numm: {fileID: 0}
   objeto: {fileID: 0}
   BtnDispensario: {fileID: 0}
   flechaD: {fileID: 1245605090}
@@ -508,6 +553,7 @@ MonoBehaviour:
   Tuto3: {fileID: 1696292985}
   Reubica: {fileID: 0}
   Atras3D: {fileID: 0}
+  ventana: 0
 --- !u!4 &75404368
 Transform:
   m_ObjectHideFlags: 0
@@ -1151,24 +1197,6 @@ MonoBehaviour:
   Reubica: {fileID: 1369919522}
   Atras3D: {fileID: 455281561}
   objetoIns: {fileID: 0}
-  Inicio: {fileID: 1781355740}
-  Mapa2D: {fileID: 1471707964}
-  infoEmpresa: {fileID: 40254151}
-  ZonaFranca: {fileID: 1536958430}
-  Dispensario: {fileID: 1664694190}
-  PF: {fileID: 1913582250}
-  FotoEmpresa:
-  - {fileID: 21300000, guid: ce50c57b66f7a0843ae83011a8794883, type: 3}
-  - {fileID: 21300000, guid: f4aea2bd83407f34b8050ae76555d993, type: 3}
-  - {fileID: 21300000, guid: 0e758c795fcac2a4d86831ae47828908, type: 3}
-  - {fileID: 21300000, guid: 09ac0c5154b308948aa86e041d9dbd55, type: 3}
-  - {fileID: 21300000, guid: 2ecf168cf9bd88344af00b97e6d53d6c, type: 3}
-  - {fileID: 21300000, guid: 42597bc6da398bd4ca70630229e83f94, type: 3}
-  - {fileID: 21300000, guid: ee29c0467fd892a4a8e4ad9071c5f487, type: 3}
-  - {fileID: 21300000, guid: 7ee2524419cd4434a8185f5ad13c403b, type: 3}
-  Foto: {fileID: 724510038}
-  Descripcion: {fileID: 1516812311}
-  BtnAtrasMap: {fileID: 356397692}
   arCamera: {fileID: 1597907568}
   lineMaterial: {fileID: 2100000, guid: 7b7af8105db5c7a409450ef6b19a6c35, type: 2}
 --- !u!4 &302659901
@@ -1527,7 +1555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &356397691
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1769,7 +1797,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &455281562
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3612,7 +3640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &910811493
 RectTransform:
   m_ObjectHideFlags: 0
