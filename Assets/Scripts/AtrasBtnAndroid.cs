@@ -39,7 +39,7 @@ public class AtrasBtnAndroid : MonoBehaviour
 			    break;    
 		   
 		    case 4: 
-			    mana.IRmapa2D();
+			    StartCoroutine(mana.IRmapa2D());
 			    mana.ventana=2;
 			    break; 
 			    
