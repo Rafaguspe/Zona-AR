@@ -29,12 +29,12 @@ public class AtrasBtnAndroid : MonoBehaviour
 			    break;
 		   
 		    case 2: 
-			    mana.back();
+			    StartCoroutine(  mana.back());
 			    mana.ventana=1;
 			    break;
 			    
 		    case 3: 
-			    mana.back();
+			    StartCoroutine(mana.Iniciox3D());
 			    mana.ventana=1;
 			    break;    
 		   
@@ -44,7 +44,7 @@ public class AtrasBtnAndroid : MonoBehaviour
 			    break; 
 			    
 		    case 5: 
-			    mana.Volver3D();
+			    StartCoroutine(mana.Volver3D());
 			    mana.ventana=3;
 			    
 			    break;  

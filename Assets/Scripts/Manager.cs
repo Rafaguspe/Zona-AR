@@ -19,7 +19,7 @@ public class Manager : MonoBehaviour
 	
 	public Image Foto,Foto1,Foto2;
 	
-	public TMP_Text Descripcion;
+	public TMP_Text Descripcion,nomedi;
     
     
 	/// <Modelos>
@@ -93,7 +93,7 @@ public class Manager : MonoBehaviour
 	    BuscaPlano.onClick.AddListener(()=>PF.SetActive(true));
 	   
 	    
-	    
+		
 	}
     
     
@@ -244,8 +244,14 @@ public class Manager : MonoBehaviour
 		
 		infoEmpresa.SetActive(true);
 		ZonaFranca.SetActive(false);
-		BtnAtrasMap.onClick.AddListener(()=> StartCoroutine(Volver2D()));
 		
+		if (ven==4)
+		{
+			BtnAtrasMap.onClick.AddListener(()=> StartCoroutine(Volver2D()));	
+		}
+		if(ven==5){
+			BtnAtrasMap.onClick.AddListener(()=> StartCoroutine(Volver3D()));
+		}
 		switch (emp)
 		{
 		
@@ -316,7 +322,7 @@ public class Manager : MonoBehaviour
 		int x=3000;
 		float sec=0.00000001f;
 		
-		for (int i = x; i >= 1180;i-=100) {
+		for (int i = x; i >= 1180;i-=170) {
 			infoEmpresa.transform.position = new	Vector3(i,540,0);
 			yield return new WaitForSeconds(sec);
 			Debug.Log(infoEmpresa.transform.position);
@@ -380,15 +386,35 @@ public class Manager : MonoBehaviour
 		Contenedor.transform.position = new	Vector3(2500,363,0f);
 	}
 	
-	public	void Volver3D()
+	
+	public	IEnumerator Volver3D()
 	{
 		//	Reubica.SetActive(true);
 		//	Atras3D.SetActive(true);
-		infoEmpresa.SetActive(false);
+		
 		Mapa2D.SetActive(false);
 		Inicio.SetActive(false);
+		
+		
+		
+		
+		int x=3000;
+		float sec=0.00000001f;
+		
+		for (int i = x; i >= 1180;i-=170) {
+			infoEmpresa.transform.position = new	Vector3(i,540,0);
+			yield return new WaitForSeconds(sec);
+			Debug.Log(infoEmpresa.transform.position);
+			
+		}
+		infoEmpresa.transform.position = new	Vector3(1170,540,0);
+		
+		
+		infoEmpresa.SetActive(false);
 		ZonaFranca.SetActive(true);
 		
 	} 
-   
+	
+	
+	
 }// fin de public 

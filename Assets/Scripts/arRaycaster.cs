@@ -57,6 +57,14 @@ public class arRaycaster : MonoBehaviour {
 	//		dragging = true;
 	//	}
 	
+	
+	void Coruti(int num1,int num2)
+	{
+		StartCoroutine(	mana.					Empresa	(num1,num2));
+		mana.BtnAtrasMap.onClick.AddListener(()=>StartCoroutine(mana.Volver3D()));
+	}
+	
+	
 	void Update() {
 		
 		//	if(Input.GetMouseButtonUp (0))
@@ -117,17 +125,20 @@ public class arRaycaster : MonoBehaviour {
 						{
 										
 			
-							mana.Empresa	(4,5);
-							mana.BtnAtrasMap.onClick.AddListener(()=>mana.Volver3D());
+							//				StartCoroutine(	mana.	Empresa	(4,5));
+							mana.nomedi.text=nam;
+							mana.BtnAtrasMap.onClick.AddListener(()=>StartCoroutine(mana.Volver3D()));
 			
 						}
 			
 						if (nam=="BtnComedor")
 						{
 										
+							Coruti(1,5);
 		
-							mana.				Empresa	(1,5);
-							mana.BtnAtrasMap.onClick.AddListener(()=>mana.Volver3D());
+							//				StartCoroutine(	mana.					Empresa	(1,5));
+						mana.nomedi.text=nam;
+							//				mana.BtnAtrasMap.onClick.AddListener(()=>StartCoroutine(mana.Volver3D()));
 						}
 			
 			
@@ -136,8 +147,9 @@ public class arRaycaster : MonoBehaviour {
 										
 							//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
-			mana.				Empresa	(2,5);
-							mana.BtnAtrasMap.onClick.AddListener(()=>mana.Volver3D());
+							//				StartCoroutine(	mana.					Empresa	(2,5));
+							mana.nomedi.text=nam;
+							mana.BtnAtrasMap.onClick.AddListener(()=>StartCoroutine(mana.Volver3D()));
 						}
 			
 			
@@ -146,8 +158,9 @@ public class arRaycaster : MonoBehaviour {
 										
 							//						Reubica.SetActive(false);
 							//						Atras3D.SetActive(false);
-			mana.				Empresa	(3,5);
-							mana.BtnAtrasMap.onClick.AddListener(()=>mana.Volver3D());
+							//				StartCoroutine(	mana.					Empresa	(3,5));
+							mana.nomedi.text=nam;
+							mana.BtnAtrasMap.onClick.AddListener(()=>StartCoroutine(mana.Volver3D()));
 						}
 			
 			
@@ -156,8 +169,9 @@ public class arRaycaster : MonoBehaviour {
 										
 							//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
-			mana.				Empresa	(6,5);
-							mana.BtnAtrasMap.onClick.AddListener(()=>mana.Volver3D());
+							//				StartCoroutine(	mana.					Empresa	(6,5));
+							mana.nomedi.text=nam;
+							mana.BtnAtrasMap.onClick.AddListener(()=>StartCoroutine(mana.Volver3D()));
 						}
 						
 						if (nam=="BtnLigna")
@@ -165,8 +179,9 @@ public class arRaycaster : MonoBehaviour {
 										
 												//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
-							mana.				Empresa	(7,5);
-							mana.BtnAtrasMap.onClick.AddListener(()=>mana.Volver3D());
+							//					StartCoroutine(	mana.				Empresa	(7,5));
+							mana.nomedi.text=nam;
+							mana.BtnAtrasMap.onClick.AddListener(()=>StartCoroutine(mana.Volver3D()));
 						}
 						
 						if (nam=="BtnControlEng")
@@ -174,8 +189,9 @@ public class arRaycaster : MonoBehaviour {
 										
 							//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
-			mana.				Empresa	(8,5);
-							mana.BtnAtrasMap.onClick.AddListener(()=>mana.Volver3D());
+							//				StartCoroutine(	mana.	Empresa	(8,5));
+							mana.nomedi.text=nam;
+							mana.BtnAtrasMap.onClick.AddListener(()=>StartCoroutine(mana.Volver3D()));
 						}
 			
 			
@@ -183,8 +199,9 @@ public class arRaycaster : MonoBehaviour {
 						{
 										
 		
-							mana.					Empresa	(5,5);
-							mana.BtnAtrasMap.onClick.AddListener(()=>mana.Volver3D());
+							//					StartCoroutine(mana.	Empresa	(5,5));
+							mana.nomedi.text=nam;
+							mana.BtnAtrasMap.onClick.AddListener(()=>StartCoroutine(mana.Volver3D()));
 						}
 			
 			
