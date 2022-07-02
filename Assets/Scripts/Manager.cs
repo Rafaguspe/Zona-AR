@@ -17,7 +17,7 @@ public class Manager : MonoBehaviour
 	
 	public Sprite [] FotoEmpresa;
 	
-	public Image Foto;
+	public Image Foto,Foto1,Foto2;
 	
 	public TMP_Text Descripcion;
     
@@ -272,6 +272,8 @@ public class Manager : MonoBehaviour
 			
 		case 4:
 			Foto.sprite= FotoEmpresa[3];
+			Foto1.sprite= FotoEmpresa[8];
+			Foto2.sprite= FotoEmpresa[9];
 			Descripcion.text="La Aurora, la compañía tabaquera más antigua de República Dominicana líder en el"+
 				" mercado de tabaco dominicano y con presencia en más de sesenta países– ha apostado por un proyecto"+
 				" innovador y único en el mundo: La Aurora Cigar World. Un concepto cuyo objetivo es formar a"+
