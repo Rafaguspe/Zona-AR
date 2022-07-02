@@ -257,6 +257,8 @@ public class Manager : MonoBehaviour
 		
 		case 1:
 			Foto.sprite= FotoEmpresa[0];
+			Foto1.sprite= FotoEmpresa[16];
+			Foto2.sprite= FotoEmpresa[17];
 			Descripcion.text="El comedor es el área donde todos los empleados, pueden disgustar de sus alimentos"+
 				" en sus tiempos de recesos, la misma cuenta con una cocina donde se venden distintos platos a la"+
 				" hora del desayuno y almuerzo.";
@@ -264,6 +266,8 @@ public class Manager : MonoBehaviour
 			
 		case 2:
 			Foto.sprite= FotoEmpresa[1];
+			Foto1.sprite= FotoEmpresa[18];
+			Foto2.sprite= FotoEmpresa[19];
 			Descripcion.text="El dispensario médico está diseñado para brindarte una oportuna atención de salud."+
 				"Se atienden casos que no requieran de hospitalización, se brindan primeros auxilios y se efectúan"+
 				"recetarios de medicamentos, en casos que lo ameriten.";
@@ -291,6 +295,8 @@ public class Manager : MonoBehaviour
 			
 		case 5:
 			Foto.sprite= FotoEmpresa[4];
+			Foto1.sprite= FotoEmpresa[20];
+			Foto2.sprite= FotoEmpresa[21];
 			Descripcion.text="La oficina principal también puede servir como hogar para maquinaria de oficina. Los dispositivos"+
 				" comunes que se encuentran en la oficina incluyen copiadoras, máquinas de fax, teléfonos multilínea, máquinas de correo"+
 				" y báscula para correo y computadoras de oficina.";
@@ -307,6 +313,8 @@ public class Manager : MonoBehaviour
 		
 		case 7:
 			Foto.sprite= FotoEmpresa[6];
+			Foto1.sprite= FotoEmpresa[6];
+			Foto2.sprite= FotoEmpresa[6];
 			Descripcion.text="A.J.B Ligna Group, es una empresa encargada de la manufacturación de cajas para"+
 				" cigarros, esta empresa su gestor es Ana Cristina Martínez Rodríguez y el titular Jose Augusto Arias Corominas.";
 			break;
