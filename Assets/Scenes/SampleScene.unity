@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44402182, g: 0.49316454, b: 0.5722313, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402218, g: 0.49316543, b: 0.572232, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -573,14 +573,20 @@ MonoBehaviour:
   FotoEmpresa:
   - {fileID: 21300000, guid: ce50c57b66f7a0843ae83011a8794883, type: 3}
   - {fileID: 21300000, guid: f4aea2bd83407f34b8050ae76555d993, type: 3}
-  - {fileID: 21300000, guid: 0e758c795fcac2a4d86831ae47828908, type: 3}
+  - {fileID: 21300000, guid: 8cc97a6934f5a434dad754314a1da231, type: 3}
   - {fileID: 21300000, guid: e61cfa968ec02f84d9e665062c2e5bf4, type: 3}
   - {fileID: 21300000, guid: 2ecf168cf9bd88344af00b97e6d53d6c, type: 3}
   - {fileID: 21300000, guid: 42597bc6da398bd4ca70630229e83f94, type: 3}
   - {fileID: 21300000, guid: ee29c0467fd892a4a8e4ad9071c5f487, type: 3}
-  - {fileID: 21300000, guid: 7ee2524419cd4434a8185f5ad13c403b, type: 3}
+  - {fileID: 21300000, guid: 9e0d7ece0e6fb4f47be2a5f56c721cc3, type: 3}
   - {fileID: 21300000, guid: a4a1960ff56dcc0408b4ae708cfbb5d4, type: 3}
   - {fileID: 21300000, guid: 94aa037a111ab53449d2cf9ddf24a2d5, type: 3}
+  - {fileID: 21300000, guid: 43e53ec51ff573c44ad72478fa6d2d8b, type: 3}
+  - {fileID: 21300000, guid: 7fb73dcadb8d0284188eb051f425cfe6, type: 3}
+  - {fileID: 21300000, guid: 605cd0f29a54ba34481305ff6b036ad0, type: 3}
+  - {fileID: 21300000, guid: e36cd67c4c7914a4f88564bdb0ad49c7, type: 3}
+  - {fileID: 21300000, guid: 6a26295592da1974483f3a0da2f01716, type: 3}
+  - {fileID: 21300000, guid: 7ee2524419cd4434a8185f5ad13c403b, type: 3}
   Foto: {fileID: 724510038}
   Foto1: {fileID: 328578481}
   Foto2: {fileID: 365413899}
@@ -6590,7 +6596,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1536958431
 Transform:
   m_ObjectHideFlags: 0
@@ -7589,7 +7595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1781355741
 RectTransform:
   m_ObjectHideFlags: 0

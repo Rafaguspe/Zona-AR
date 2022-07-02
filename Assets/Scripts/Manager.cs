@@ -271,6 +271,8 @@ public class Manager : MonoBehaviour
 			
 		case 3:
 			Foto.sprite= FotoEmpresa[2];
+			Foto1.sprite= FotoEmpresa[10];
+			Foto2.sprite= FotoEmpresa[11];
 			Descripcion.text="En t-eco Group, estamos sentando las bases para construir un mejor futuro con"+
 				" proyectos que sean socialmente responsables, con metas medibles, en condiciones ambientalmente sostenibles,"+
 				" tecnológicamente avanzadas, económicamente viables y absolutamente realizables.";
@@ -296,6 +298,8 @@ public class Manager : MonoBehaviour
 		
 		case 6:
 			Foto.sprite= FotoEmpresa[5];
+			Foto1.sprite= FotoEmpresa[12];
+			Foto2.sprite= FotoEmpresa[13];
 			Descripcion.text="Empresa encargada  de importación, exportación, fabricación Y comercialización de productos textiles y "+
 				"prendas de vestir. Tanto productos como pantalones, batas de laboratorios, mascarillas y "+
 				"todo tipos e Textil que el cliente desee ordenar.";
@@ -309,6 +313,8 @@ public class Manager : MonoBehaviour
 		
 		case 8:
 			Foto.sprite= FotoEmpresa[7];
+			Foto1.sprite= FotoEmpresa[14];
+			Foto2.sprite= FotoEmpresa[15];
 			Descripcion.text="Control Engineering cuenta con más de dos décadas brindando soluciones de"+
 				" automatización de procesos industriales a sus clientes, con un trato enteramente profesional."+
 				" Nuestra filosofía empresarial busca servir con responsabilidad, ética, calidad e innovación, con "+
