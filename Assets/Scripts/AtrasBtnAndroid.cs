@@ -29,22 +29,26 @@ public class AtrasBtnAndroid : MonoBehaviour
 			    break;
 		   
 		    case 2: 
-			    StartCoroutine(  mana.back());
+			    //  StartCoroutine(mana.back());
+			    mana.back();
 			    mana.ventana=1;
 			    break;
 			    
 		    case 3: 
-			    StartCoroutine(mana.Iniciox3D());
+			    // StartCoroutine( mana.Iniciox3D());
+			    mana.Iniciox3D();
 			    mana.ventana=1;
 			    break;    
 		   
 		    case 4: 
-			    StartCoroutine(mana.IRmapa2D());
+			    // StartCoroutine(mana.Volver2D());
+			      mana.Volver2D();
 			    mana.ventana=2;
 			    break; 
 			    
 		    case 5: 
-			    StartCoroutine(mana.Volver3D());
+			    //  StartCoroutine(mana.Volver3D());
+			    mana.Volver3D();
 			    mana.ventana=3;
 			    
 			    break;  

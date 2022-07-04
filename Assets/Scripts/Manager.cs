@@ -19,7 +19,7 @@ public class Manager : MonoBehaviour
 	
 	public Image Foto,Foto1,Foto2;
 	
-	public TMP_Text Descripcion,nomedi;
+	public TMP_Text Descripcion,nomedi,numven;
     
     
 	/// <Modelos>
@@ -32,12 +32,12 @@ public class Manager : MonoBehaviour
     
   
   
-	public Button flechaD,FlechaI,BuscaPlano,Aurora;
-	public GameObject Contenedor,Tuto1,Tuto2,Tuto3,Reubica,Atras3D;
+	public Button flechaD,FlechaI,BuscaPlano,Aurora,Ayuda;
+	public GameObject Contenedor,Tuto1,Tuto2,Tuto3,Reubica,Atras3D,BtnsLeyenda;
 	int tuto=0;
 	public int ventana;
-	
-    
+	bool tutoestado=true;
+
     
     void Start()
 	{
@@ -48,9 +48,12 @@ public class Manager : MonoBehaviour
 	    ZonaFranca.SetActive(false);
 	    PF.SetActive(true);
 	    // FondoDispensario.SetActive(false);
-		BtnAtras.onClick.AddListener(()=>StartCoroutine(back()));
-	    
+		//BtnAtras.onClick.AddListener(()=>StartCoroutine(back()));
+		
+		BtnAtras.onClick.AddListener(()=>back());
+		/*
 		btn1.onClick.AddListener(()=>StartCoroutine(Empresa(1,4)));
+		
 	    btnleyd1.onClick.AddListener(()=> StartCoroutine(Empresa(1,4)));
 	    
 		btn2.onClick.AddListener(()=>StartCoroutine( Empresa(2,4)));
@@ -75,16 +78,55 @@ public class Manager : MonoBehaviour
 	    btn8.onClick.AddListener(()=>StartCoroutine( Empresa(8,4)));
 	    btnleyd8.onClick.AddListener(()=>StartCoroutine( Empresa(8,4)));
 	    
-		btn2D.onClick.AddListener(()=> StartCoroutine(IRmapa2D()));
-		btnNom2D.onClick.AddListener(()=> StartCoroutine(IRmapa2D()));
+		*/
+		
+		Ayuda.onClick.AddListener(()=> StartCoroutine(tutorial()));
+		
+		btn1.onClick.AddListener(()=>Empresa(1,4));
+		
+		btnleyd1.onClick.AddListener(()=> Empresa(1,4));
+	    
+		btn2.onClick.AddListener(()=> Empresa(2,4));
+		btnleyd2.onClick.AddListener(()=>  Empresa(2,4));
+	    
+		btn3.onClick.AddListener(()=>Empresa(3,4));
+		btnleyd3.onClick.AddListener(()=>Empresa(3,4));
+	    
+		btn4.onClick.AddListener(()=> Empresa(4,4));
+		btnleyd4.onClick.AddListener(()=> Empresa(4,4));
+	    
+		btn5.onClick.AddListener(()=> Empresa(5,4));
+		btnleyd5.onClick.AddListener(()=> Empresa(5,4));
+	    
+		btn6.onClick.AddListener(()=> Empresa(6,4));
+		btnleyd6.onClick.AddListener(()=> Empresa(6,4));
+	    
+		btn7.onClick.AddListener(()=> Empresa(7,4));
+		btnleyd7.onClick.AddListener(()=> Empresa(7,4));
+	    
+	    
+		btn8.onClick.AddListener(()=> Empresa(8,4));
+		btnleyd8.onClick.AddListener(()=> Empresa(8,4));
+	    
+		
+		
+		
+		
+		
+		//	btn2D.onClick.AddListener(()=> StartCoroutine( IRmapa2D()));
+		btn2D.onClick.AddListener(()=>  IRmapa2D());
+		//btnNom2D.onClick.AddListener(()=>StartCoroutine( IRmapa2D()));
+		btnNom2D.onClick.AddListener(()=>IRmapa2D());
 	    //  BtnDispensario.onClick.AddListener(()=> InfoDis());
 	    
 	    
 	    
-	    btn3D.onClick.AddListener(() => StartCoroutine(IRmapa3D()));
-	    // btnNom3D.onClick.AddListener(()=> IRmapa3D());
-	    btnNom3D.onClick.AddListener(() => StartCoroutine(IRmapa3D()));
-		BtnAtras3d.onClick.AddListener(()=> StartCoroutine(Iniciox3D()));
+		//	btn3D.onClick.AddListener(() =>StartCoroutine( IRmapa3D()));
+		btn3D.onClick.AddListener(() => IRmapa3D());
+	     btnNom3D.onClick.AddListener(()=> IRmapa3D());
+		//btnNom3D.onClick.AddListener(() => StartCoroutine (IRmapa3D()));
+		//	BtnAtras3d.onClick.AddListener(()=>StartCoroutine(Iniciox3D()));
+		BtnAtras3d.onClick.AddListener(()=>Iniciox3D());
 	    //  btn2D.onClick.AddListener(()=> Categoria(1));
         
 	  
@@ -97,39 +139,68 @@ public class Manager : MonoBehaviour
 	}
     
     
-	public	IEnumerator Iniciox3D()
+	public	void Iniciox3D()
 	{
+		ventana=1;
 		int y=1630;
 		float sec=0.0000000001f;
 		
-		ventana=2;
 		infoEmpresa.SetActive(false);
+		Mapa2D.SetActive(false);
 		Inicio.SetActive(true);
 		//Mapa2D.transform.position = new	Vector3(966,y,0f);
+		//	BtnAtras3d.onClick.AddListener(()=>StartCoroutine(Iniciox3D()));
 		
+	
+		/*
 		for (int i = y; i >= 540;i-=100) {
 			Inicio.transform.position = new	Vector3(1170,i,0);
 			yield return new WaitForSeconds(sec);
 			
 		}
+		
+		
 		Inicio.transform.position = new	Vector3(1170,540,0);
-		
-		
+		*/
 		ZonaFranca.SetActive(false);
 		
 	}//Fin IRmapa2D
     
     
+	public IEnumerator tutorial()
+	{
+		if (tutoestado==true)
+		{
+			tutoestado=false;
+			Tuto1.SetActive(true);
+			yield return new WaitForSeconds(3);
+			Tuto1.SetActive(false);
+			Tuto2.SetActive(true);
+			yield return new WaitForSeconds(5);
+			Tuto2.SetActive(false);
+			Tuto3.SetActive(true);
+			yield return new WaitForSeconds(10);
+			Tuto3.SetActive(false);
+			yield return new WaitForSeconds(0.00001f);
+			tutoestado=true;
+			
+		}
+	}
+    
+    
 
 
-	public	IEnumerator Volver2D()
+	public	void Volver2D()
 	{
 		
 		
 		ventana=2;
 		Inicio.SetActive(false);
 		ZonaFranca.SetActive(false);
+		infoEmpresa.SetActive(false);
 		Mapa2D.SetActive(true);
+		BtnsLeyenda.SetActive(false);
+		/*
 		int x=1180;
 		float sec=0.00000001f;
 		
@@ -141,13 +212,17 @@ public class Manager : MonoBehaviour
 		}
 		infoEmpresa.transform.position = new	Vector3(4000,540,0);
 		
-		//	infoEmpresa.SetActive(false);
+		ZonaFranca.SetActive(false);
+		infoEmpresa.SetActive(false);
+		yield return new WaitForSeconds(0.000000005f);
+		*/
+		BtnsLeyenda.SetActive(true);
 		
 	}//Fin IRmapa2D
 
 
 
-	public	IEnumerator IRmapa2D()
+	public	void IRmapa2D()
 	{
 		int y=1630;
 		float sec=0.0000000001f;
@@ -157,6 +232,8 @@ public class Manager : MonoBehaviour
 		ZonaFranca.SetActive(false);
 		//Mapa2D.transform.position = new	Vector3(966,y,0f);
 		Mapa2D.SetActive(true);
+		
+		/*
 		for (int i = y; i >= 540;i-=100) {
 			Mapa2D.transform.position = new	Vector3(1170,i,0);
 			yield return new WaitForSeconds(sec);
@@ -164,16 +241,21 @@ public class Manager : MonoBehaviour
 		}
 		Mapa2D.transform.position = new	Vector3(1170,540,0);
 		
+		*/
+		ZonaFranca.SetActive(false);
 		Inicio.SetActive(false);
 		
 	}//Fin IRmapa2D
 	
 	
-	public IEnumerator back()
+	public void back()
 	{
+		ventana=1;
 		infoEmpresa.SetActive(false);
 		ZonaFranca.SetActive(false);
 		Inicio.SetActive(true);
+		/*
+		
 		int y=1630;
 		float sec=0.0000000001f;
 		
@@ -184,7 +266,7 @@ public class Manager : MonoBehaviour
 		}
 		Mapa2D.transform.position = new	Vector3(1170,y,0);
 		
-		
+		*/
 		
 		Mapa2D.SetActive(false);	
 		
@@ -195,7 +277,7 @@ public class Manager : MonoBehaviour
 	
 	
 	
-	public IEnumerator IRmapa3D()
+	public void IRmapa3D()
 	{
 		ventana=3;
 		
@@ -203,7 +285,10 @@ public class Manager : MonoBehaviour
 		infoEmpresa.SetActive(false);
 		ZonaFranca.SetActive(true);
 		objeto=Dispensario.transform;
+		//	BtnAtras3d.onClick.AddListener(()=>StartCoroutine(Iniciox3D()));
 		
+		
+		/*
 		
 		int y=1630;
 		float sec=0.0000000001f;
@@ -213,45 +298,45 @@ public class Manager : MonoBehaviour
 			yield return new WaitForSeconds(sec);
 			
 		}
-		Mapa2D.transform.position = new	Vector3(1170,y,0);
+		Inicio.transform.position = new	Vector3(1170,y,0);
+		ZonaFranca.transform.position = new	Vector3(173.21f,469.32f,-1554);
+		*/
 		Inicio.SetActive(false);
 		
+		/*
 		
-		if (tuto<=0)
-		{
-			Tuto1.SetActive(true);
-			yield return new WaitForSeconds(3);
-			Tuto1.SetActive(false);
-			Tuto2.SetActive(true);
-			yield return new WaitForSeconds(5);
-			Tuto2.SetActive(false);
-			Tuto3.SetActive(true);
-			yield return new WaitForSeconds(10);
-			Tuto3.SetActive(false);
-			tuto=1;
-		}
 		
+		*/
 		
 		
 	}//Fin IRmapa3D
 
 
 
-	public	IEnumerator Empresa(int emp,int ven)
+	public	void Empresa(int emp,int ven)
 	{
+		//StopCoroutine(Empresa(emp,ven));
 		ventana=ven;
 		Inicio.SetActive(false);
 		
 		infoEmpresa.SetActive(true);
 		ZonaFranca.SetActive(false);
+		//	BtnAtras3d.onClick.AddListener(()=>StartCoroutine(Iniciox3D()));
 		
+		
+		numven.text=ventana.ToString();
 		if (ven==4)
 		{
-			BtnAtrasMap.onClick.AddListener(()=> StartCoroutine(Volver2D()));	
+			//		BtnAtrasMap.onClick.AddListener(()=> StartCoroutine(Volver2D()));	
+			BtnAtrasMap.onClick.AddListener(()=> Volver2D());
 		}
-		if(ven==5){
-			BtnAtrasMap.onClick.AddListener(()=> StartCoroutine(Volver3D()));
+		if (ven==5)
+		{
+			//	BtnAtrasMap.onClick.AddListener(()=> StartCoroutine(Volver3D()));	
+			BtnAtrasMap.onClick.AddListener(()=> Volver3D());	
 		}
+		
+		
 		switch (emp)
 		{
 		
@@ -333,6 +418,7 @@ public class Manager : MonoBehaviour
 		
 		}// fin switch
 		
+		/*
 		int x=3000;
 		float sec=0.00000001f;
 		
@@ -345,6 +431,8 @@ public class Manager : MonoBehaviour
 		infoEmpresa.transform.position = new	Vector3(1170,540,0);
 		
 		
+		infoEmpresa.transform.position = new	Vector3(1170,540,0);
+		*/
 		Mapa2D.SetActive(false);	
 		
 		
@@ -355,6 +443,9 @@ public class Manager : MonoBehaviour
 
 	private void Update()
 	{
+		
+		Debug.Log(ZonaFranca.transform.position);
+		
 		
 		
 		// si hay dos dedo pulsando la pantalla
@@ -401,7 +492,7 @@ public class Manager : MonoBehaviour
 	}
 	
 	
-	public	IEnumerator Volver3D()
+	public	void Volver3D()
 	{
 		//	Reubica.SetActive(true);
 		//	Atras3D.SetActive(true);
@@ -409,20 +500,24 @@ public class Manager : MonoBehaviour
 		Mapa2D.SetActive(false);
 		Inicio.SetActive(false);
 		
+		//	BtnAtras3d.onClick.AddListener(()=>StartCoroutine(Iniciox3D()));
+		BtnAtras3d.onClick.AddListener(()=>Iniciox3D());
+		/*	
 		
-		
-		
-		int x=3000;
+		int x=1180;
 		float sec=0.00000001f;
 		
-		for (int i = x; i >= 1180;i-=170) {
+		for (int i = x; i <= 4000;i+=100) {
 			infoEmpresa.transform.position = new	Vector3(i,540,0);
 			yield return new WaitForSeconds(sec);
 			Debug.Log(infoEmpresa.transform.position);
 			
 		}
-		infoEmpresa.transform.position = new	Vector3(1170,540,0);
+		infoEmpresa.transform.position = new	Vector3(4000,540,0);
 		
+			
+		ZonaFranca.transform.position = new	Vector3(173.21f,469.32f,-1554);
+		*/
 		
 		infoEmpresa.SetActive(false);
 		ZonaFranca.SetActive(true);
