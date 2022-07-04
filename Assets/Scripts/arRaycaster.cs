@@ -20,7 +20,7 @@ public class arRaycaster : MonoBehaviour {
 	
 	
 	Manager mana;
-	
+	UI_HoldButton Presionado;
 	
 	
 	
@@ -38,7 +38,9 @@ public class arRaycaster : MonoBehaviour {
 	{
 		if(arCamera == null)    arCamera = Camera.main;
 		mana=GameObject.FindGameObjectWithTag("TagMana").GetComponent<Manager>();
-		viewLine = CreateLine("ViewLine", Color.clear);
+		Presionado=GameObject.FindGameObjectWithTag("TagPresionado").GetComponent<UI_HoldButton>();
+
+		//viewLine = CreateLine("ViewLine", Color.red);
        
 	}
 	
@@ -102,9 +104,11 @@ public class arRaycaster : MonoBehaviour {
 						//penderPANELsECONDS=hitObject.transform.GetChild(2).gameObject;
 						//penderPANELsECONDS.SetActive(true);
 						
-						if (nam=="BtnAurora"||nam=="BtnAurora1"||nam=="BtnAurora2"||nam=="BtnAurora3")
+						if (nam=="BtnAurora"||nam=="BtnAurora1"||nam=="BtnAurora2"||nam=="BtnAurora3"||nam=="BtnAurora4")
 						{
 
+
+							Presionado.IsHolding=false;
 							//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
 			
@@ -116,7 +120,7 @@ public class arRaycaster : MonoBehaviour {
 
 						if (nam=="BtnComedor")
 						{
-
+							Presionado.IsHolding=false;
 							//						Reubica.SetActive(false);
 							//						Atras3D.SetActive(false);
 			
@@ -128,6 +132,7 @@ public class arRaycaster : MonoBehaviour {
 
 						if (nam=="BtnDispensario")
 						{
+							Presionado.IsHolding=false;
 
 							//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
@@ -140,19 +145,20 @@ public class arRaycaster : MonoBehaviour {
 
 						if (nam=="BtnT-eco")
 						{
-
+							Presionado.IsHolding=false;
 							//						Reubica.SetActive(false);
 							//						Atras3D.SetActive(false);
 			
 							//				Nombre.text="caso1";
 							mana.				Empresa	(3,5);
-								//				StartCoroutine(				mana.				Empresa	(3,5));
+							//				StartCoroutine(				mana.				Empresa	(3,5));
 							//						mana.BtnAtrasMap.onClick.AddListener(()=>StartCoroutine(mana.Volver3D()));
-											}
+						}
 
 
 						if (nam=="BtnAmle")
 						{
+							Presionado.IsHolding=false;
 
 							//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
@@ -165,17 +171,19 @@ public class arRaycaster : MonoBehaviour {
 
 						if (nam=="BtnLigna")
 						{
+							Presionado.IsHolding=false;
 
 							//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
 							mana.				Empresa	(7,5);
 			
-								//				StartCoroutine(				mana.				Empresa	(7,5));
+							//				StartCoroutine(				mana.				Empresa	(7,5));
 							//					mana.BtnAtrasMap.onClick.AddListener(()=>StartCoroutine(mana.Volver3D()));
 						}
 
 						if (nam=="BtnControlEng")
 						{
+							Presionado.IsHolding=false;
 
 							//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
@@ -189,7 +197,7 @@ public class arRaycaster : MonoBehaviour {
 
 						if (nam=="BtnAdministracion")
 						{
-
+							Presionado.IsHolding=false;
 							//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
 			
@@ -199,7 +207,7 @@ public class arRaycaster : MonoBehaviour {
 
 							//				StartCoroutine(				mana.					Empresa	(5,5));
 							//					mana.BtnAtrasMap.onClick.AddListener(()=> StartCoroutine(mana.Volver3D()));
-										}
+						}
 
 						
 						
@@ -208,15 +216,15 @@ public class arRaycaster : MonoBehaviour {
 						
 						
 						
-					}else  if(activo==false){
+						}else  if(activo==false){
 	        	          
-						if(hitObject.transform.name=="canvasInformacion"){
-							penderPanel=hitObject.transform.gameObject;
-							penderPanel.SetActive(false);	
-							//penderPANELsECONDS.SetActive(false);
-							//activo=false;
+							if(hitObject.transform.name=="canvasInformacion"){
+								penderPanel=hitObject.transform.gameObject;
+								penderPanel.SetActive(false);	
+								//penderPANELsECONDS.SetActive(false);
+								//activo=false;
+							}
 						}
-					}
 				}
 			}
 		

@@ -7,11 +7,11 @@ using TMPro;
 
 public class Manager : MonoBehaviour
 {
-	public GameObject Inicio,Mapa2D,infoEmpresa,ZonaFranca,Dispensario,PF;
+	public GameObject Inicio,Mapa2D,infoEmpresa,ZonaFranca,Dispensario,PF,btnGiraGO;
 	public Button btn2D,btn3D,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,BtnAtras,BtnAtrasMap,BtnAtras3d,
 		btnleyd1,btnleyd2,btnleyd3,btnleyd4,btnleyd5,btnleyd6,btnleyd7,btnleyd8,btnNom2D,btnNom3D;
     
-	
+	public UI_HoldButton gira;
 	
 	
 	
@@ -32,15 +32,19 @@ public class Manager : MonoBehaviour
     
   
   
-	public Button flechaD,FlechaI,BuscaPlano,Aurora,Ayuda;
+	public Button flechaD,FlechaI,BuscaPlano,Aurora,Ayuda,giraModelo;
 	public GameObject Contenedor,Tuto1,Tuto2,Tuto3,Reubica,Atras3D,BtnsLeyenda;
 	int tuto=0;
 	public int ventana;
 	bool tutoestado=true;
+	
+	UI_HoldButton Presionado;
 
     
     void Start()
 	{
+		gira.enabled=true;
+		Presionado=GameObject.FindGameObjectWithTag("TagPresionado").GetComponent<UI_HoldButton>();
 		ventana=1;
 	    Inicio.SetActive(true);
 	    Mapa2D.SetActive(false);
@@ -112,7 +116,6 @@ public class Manager : MonoBehaviour
 		
 		
 		
-		
 		//	btn2D.onClick.AddListener(()=> StartCoroutine( IRmapa2D()));
 		btn2D.onClick.AddListener(()=>  IRmapa2D());
 		//btnNom2D.onClick.AddListener(()=>StartCoroutine( IRmapa2D()));
@@ -163,6 +166,7 @@ public class Manager : MonoBehaviour
 		Inicio.transform.position = new	Vector3(1170,540,0);
 		*/
 		ZonaFranca.SetActive(false);
+		gira.enabled=true;
 		
 	}//Fin IRmapa2D
     
@@ -280,7 +284,7 @@ public class Manager : MonoBehaviour
 	public void IRmapa3D()
 	{
 		ventana=3;
-		
+		Presionado.IsHolding=false;
 		Mapa2D.SetActive(false);
 		infoEmpresa.SetActive(false);
 		ZonaFranca.SetActive(true);
@@ -307,7 +311,7 @@ public class Manager : MonoBehaviour
 		
 		
 		*/
-		
+		gira.enabled=true;
 		
 	}//Fin IRmapa3D
 
@@ -315,6 +319,7 @@ public class Manager : MonoBehaviour
 
 	public	void Empresa(int emp,int ven)
 	{
+		gira.enabled=false;
 		//StopCoroutine(Empresa(emp,ven));
 		ventana=ven;
 		Inicio.SetActive(false);
@@ -322,7 +327,7 @@ public class Manager : MonoBehaviour
 		infoEmpresa.SetActive(true);
 		ZonaFranca.SetActive(false);
 		//	BtnAtras3d.onClick.AddListener(()=>StartCoroutine(Iniciox3D()));
-		
+		Presionado.IsHolding=false;
 		
 		numven.text=ventana.ToString();
 		if (ven==4)
@@ -446,7 +451,7 @@ public class Manager : MonoBehaviour
 		
 		Debug.Log(ZonaFranca.transform.position);
 		
-		
+		/*
 		
 		// si hay dos dedo pulsando la pantalla
 		
@@ -467,14 +472,14 @@ public class Manager : MonoBehaviour
 		
 		}
 		// // // // // // // // // // // // // // // // / //
-		
+		*/
 	
 	}// fin Update
 
 
-	void GirarModelo()
+	public void GirarModelo()
 	{
-		objeto.transform.Rotate(0f,10f,0f);
+		objeto.transform.Rotate(0f,1f,0f);
 	}// fin Girar Modelo
 
 	
@@ -496,7 +501,7 @@ public class Manager : MonoBehaviour
 	{
 		//	Reubica.SetActive(true);
 		//	Atras3D.SetActive(true);
-		
+		Presionado.IsHolding=false;
 		Mapa2D.SetActive(false);
 		Inicio.SetActive(false);
 		
@@ -521,6 +526,7 @@ public class Manager : MonoBehaviour
 		
 		infoEmpresa.SetActive(false);
 		ZonaFranca.SetActive(true);
+		gira.enabled=true;
 		
 	} 
 	
