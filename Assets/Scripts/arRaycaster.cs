@@ -38,7 +38,7 @@ public class arRaycaster : MonoBehaviour {
 	{
 		if(arCamera == null)    arCamera = Camera.main;
 		mana=GameObject.FindGameObjectWithTag("TagMana").GetComponent<Manager>();
-		//viewLine = CreateLine("ViewLine", Color.red);
+		viewLine = CreateLine("ViewLine", Color.clear);
        
 	}
 	
