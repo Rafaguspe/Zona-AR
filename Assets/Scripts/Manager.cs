@@ -7,7 +7,7 @@ using TMPro;
 
 public class Manager : MonoBehaviour
 {
-	public GameObject Inicio,Mapa2D,infoEmpresa,ZonaFranca,Dispensario,PF,btnGiraGO;
+	public GameObject Inicio,Mapa2D,infoEmpresa,infoEmpresa3D,ZonaFranca,Dispensario,PF,btnGiraGO;
 	public Button btn2D,btn3D,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,BtnAtras,BtnAtrasMap,BtnAtras3d,
 		btnleyd1,btnleyd2,btnleyd3,btnleyd4,btnleyd5,btnleyd6,btnleyd7,btnleyd8,btnNom2D,btnNom3D;
     
@@ -50,7 +50,8 @@ public class Manager : MonoBehaviour
 	    Mapa2D.SetActive(false);
 	    infoEmpresa.SetActive(false);
 	    ZonaFranca.SetActive(false);
-	    PF.SetActive(true);
+		PF.SetActive(true);
+		infoEmpresa3D.SetActive(false);
 	    // FondoDispensario.SetActive(false);
 		//BtnAtras.onClick.AddListener(()=>StartCoroutine(back()));
 		
@@ -133,7 +134,8 @@ public class Manager : MonoBehaviour
 	    //  btn2D.onClick.AddListener(()=> Categoria(1));
         
 	  
-	    flechaD.onClick.AddListener(()=>MoverD());
+		flechaD.onClick.AddListener(()=>MoverD());
+		
 	    FlechaI.onClick.AddListener(()=>MoverI());
 	    BuscaPlano.onClick.AddListener(()=>PF.SetActive(true));
 	   
@@ -486,12 +488,15 @@ public class Manager : MonoBehaviour
 
 	void MoverD()
 	{
+		infoEmpresa3D.SetActive(true);
 		Debug.Log(Contenedor.transform.position);
 		Contenedor.transform.position = new	Vector3(-1000,363,0f);
 	}
 
 	void MoverI()
 	{
+		infoEmpresa3D.SetActive(false	);
+
 		Debug.Log(Contenedor.transform.position);
 		Contenedor.transform.position = new	Vector3(2500,363,0f);
 	}
