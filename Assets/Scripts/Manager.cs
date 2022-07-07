@@ -17,9 +17,9 @@ public class Manager : MonoBehaviour
 	
 	public Sprite [] FotoEmpresa;
 	
-	public Image Foto,Foto1,Foto2;
+	public Image Foto,Foto1,Foto2,Foto3D;
 	
-	public TMP_Text Descripcion,nomedi,numven;
+	public TMP_Text Descripcion,nomedi,numven,DescripEmp3D;
     
     
 	/// <Modelos>
@@ -33,10 +33,11 @@ public class Manager : MonoBehaviour
   
   
 	public Button flechaD,FlechaI,BuscaPlano,Aurora,Ayuda,giraModelo;
-	public GameObject Contenedor,Tuto1,Tuto2,Tuto3,Reubica,Atras3D,BtnsLeyenda;
+	public GameObject Contenedor,Tuto1,Tuto2,Tuto3,Reubica,Atras3D,BtnsLeyenda,Marco3d;
 	int tuto=0;
 	public int ventana;
 	bool tutoestado=true;
+	public GameObject[] btns3D;
 	
 	UI_HoldButton Presionado;
 
@@ -50,7 +51,7 @@ public class Manager : MonoBehaviour
 	    Mapa2D.SetActive(false);
 	    infoEmpresa.SetActive(false);
 	    ZonaFranca.SetActive(false);
-		PF.SetActive(true);
+		BuscaPlano3d();
 		infoEmpresa3D.SetActive(false);
 	    // FondoDispensario.SetActive(false);
 		//BtnAtras.onClick.AddListener(()=>StartCoroutine(back()));
@@ -85,7 +86,7 @@ public class Manager : MonoBehaviour
 	    
 		*/
 		
-		Ayuda.onClick.AddListener(()=> StartCoroutine(tutorial()));
+		//Ayuda.onClick.AddListener(()=> StartCoroutine(tutorial()));
 		
 		btn1.onClick.AddListener(()=>Empresa(1,4));
 		
@@ -130,17 +131,24 @@ public class Manager : MonoBehaviour
 	     btnNom3D.onClick.AddListener(()=> IRmapa3D());
 		//btnNom3D.onClick.AddListener(() => StartCoroutine (IRmapa3D()));
 		//	BtnAtras3d.onClick.AddListener(()=>StartCoroutine(Iniciox3D()));
-		BtnAtras3d.onClick.AddListener(()=>Iniciox3D());
+		//	BtnAtras3d.onClick.AddListener(()=>Iniciox3D());
 	    //  btn2D.onClick.AddListener(()=> Categoria(1));
         
 	  
-		flechaD.onClick.AddListener(()=>MoverD());
+			flechaD.onClick.AddListener(()=>EmpresaRay(4));
 		
-	    FlechaI.onClick.AddListener(()=>MoverI());
-	    BuscaPlano.onClick.AddListener(()=>PF.SetActive(true));
+		FlechaI.onClick.AddListener(()=>CerrarEmpresaRay());
+	    BuscaPlano.onClick.AddListener(()=>BuscaPlano3d());
 	   
 	    
 		
+	}
+    
+    
+	void BuscaPlano3d()
+	{
+		PF.SetActive(true);
+		Marco3d.SetActive(true);
 	}
     
     
@@ -290,6 +298,8 @@ public class Manager : MonoBehaviour
 		Mapa2D.SetActive(false);
 		infoEmpresa.SetActive(false);
 		ZonaFranca.SetActive(true);
+		Ayuda.onClick.AddListener(()=> StartCoroutine(tutorial()));
+		BtnAtras3d.onClick.AddListener(()=>Iniciox3D());
 		objeto=Dispensario.transform;
 		//	BtnAtras3d.onClick.AddListener(()=>StartCoroutine(Iniciox3D()));
 		
@@ -481,24 +491,118 @@ public class Manager : MonoBehaviour
 
 	public void GirarModelo()
 	{
+		gira.enabled=true;
 		objeto.transform.Rotate(0f,1f,0f);
 	}// fin Girar Modelo
 
 	
-
-	void MoverD()
+	void Nada()
 	{
+		Debug.Log("No hago nada");
+	}
+	
+
+	public	void EmpresaRay(int emp)
+	{
+		
+		for (int i = 0; i < 4; i++) {
+			btns3D[i].SetActive(false);
+		}
+		
+		
+		
 		infoEmpresa3D.SetActive(true);
 		Debug.Log(Contenedor.transform.position);
-		Contenedor.transform.position = new	Vector3(-1000,363,0f);
-	}
+		Contenedor.transform.position = new	Vector3(-200,550,0f);
+		
+		
+		
+		switch (emp)
+		{
+		
+		case 1:
+			Foto3D.sprite= FotoEmpresa[0];
+			
+			DescripEmp3D.text="El comedor es el área donde todos los empleados, pueden disgustar de sus alimentos"+
+				" en sus tiempos de recesos, la misma cuenta con una cocina donde se venden distintos platos a la"+
+				" hora del desayuno y almuerzo.";
+			break;
+			
+		case 2:
+			Foto3D.sprite= FotoEmpresa[1];
+			
+			DescripEmp3D.text="El dispensario médico está diseñado para brindarte una oportuna atención de salud."+
+				"Se atienden casos que no requieran de hospitalización, se brindan primeros auxilios y se efectúan"+
+				"recetarios de medicamentos, en casos que lo ameriten.";
+			break;
+			
+		case 3:
+			Foto3D.sprite= FotoEmpresa[2];
+			
+			DescripEmp3D.text="En t-eco Group, estamos sentando las bases para construir un mejor futuro con"+
+				" proyectos que sean socialmente responsables, con metas medibles, en condiciones ambientalmente sostenibles,"+
+				" tecnológicamente avanzadas, económicamente viables y absolutamente realizables.";
+			break;
+			
+		case 4:
+			Foto3D.sprite= FotoEmpresa[3];
+			
+			DescripEmp3D.text="La Aurora, la compañía tabaquera más antigua de República Dominicana líder en el"+
+				" mercado de tabaco dominicano y con presencia en más de sesenta países";
+			break;
+			
+		case 5:
+			Foto3D.sprite= FotoEmpresa[4];
+			
+			DescripEmp3D.text="La oficina principal también puede servir como hogar para maquinaria de oficina. Los dispositivos"+
+				" comunes que se encuentran en la oficina incluyen copiadoras, máquinas de fax, teléfonos multilínea, máquinas de correo"+
+				" y báscula para correo y computadoras de oficina.";
+			break;
+		
+		case 6:
+			Foto3D.sprite= FotoEmpresa[5];
+			
+			DescripEmp3D.text="Empresa encargada  de importación, exportación, fabricación Y comercialización de productos textiles y "+
+				"prendas de vestir. Tanto productos como pantalones, batas de laboratorios, mascarillas y "+
+				"todo tipos e Textil que el cliente desee ordenar.";
+			break;
+		
+		case 7:
+			Foto3D.sprite= FotoEmpresa[6];
+			
+			DescripEmp3D.text="A.J.B Ligna Group, es una empresa encargada de la manufacturación de cajas para"+
+				" cigarros, esta empresa su gestor es Ana Cristina Martínez Rodríguez y el titular Jose Augusto Arias Corominas.";
+			break;
+		
+		case 8:
+			Foto3D.sprite= FotoEmpresa[7];
+			
+			DescripEmp3D.text="Control Engineering cuenta con más de dos décadas brindando soluciones de"+
+				" automatización de procesos industriales a sus clientes, con un trato enteramente profesional."+
+				" Nuestra filosofía empresarial busca servir con responsabilidad, ética, calidad e innovación, con "+
+				"el objetivo de ofrecer a las industrias y clientes relacionados el soporte necesario para la"+
+				" optimización de sus procesos.";
+			break;
+		
+		
+		}// fin switch
+		
+	}//Fin empresa Ray
 
-	void MoverI()
+	public	void CerrarEmpresaRay()
 	{
-		infoEmpresa3D.SetActive(false	);
+		infoEmpresa3D.SetActive(false);
 
 		Debug.Log(Contenedor.transform.position);
-		Contenedor.transform.position = new	Vector3(2500,363,0f);
+		Contenedor.transform.position = new	Vector3(3000,1600,0f);
+		
+		
+		
+		for (int i = 0; i < 4; i++) {
+			btns3D[i].SetActive(true);
+		}
+		
+	
 	}
 	
 	
@@ -531,7 +635,7 @@ public class Manager : MonoBehaviour
 		
 		infoEmpresa.SetActive(false);
 		ZonaFranca.SetActive(true);
-		gira.enabled=true;
+		
 		
 	} 
 	

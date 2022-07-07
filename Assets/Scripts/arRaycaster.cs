@@ -112,7 +112,7 @@ public class arRaycaster : MonoBehaviour {
 							//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
 			
-							mana.Empresa	(4,5);
+							mana.EmpresaRay(4);
 							//				StartCoroutine(mana.Empresa	(4,5));
 							//					mana.BtnAtrasMap.onClick.AddListener(()=> StartCoroutine(mana.Volver3D()));
 
@@ -124,7 +124,7 @@ public class arRaycaster : MonoBehaviour {
 							//						Reubica.SetActive(false);
 							//						Atras3D.SetActive(false);
 			
-							mana.				Empresa	(1,5);
+							mana.		EmpresaRay	(1);
 							//				StartCoroutine(mana.				Empresa	(1,5));
 							//						mana.BtnAtrasMap.onClick.AddListener(()=>StartCoroutine(mana.Volver3D()));
 						}
@@ -137,7 +137,7 @@ public class arRaycaster : MonoBehaviour {
 							//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
 			
-							mana.				Empresa	(2,5);
+							mana.		EmpresaRay(2);
 							//				StartCoroutine(				mana.				Empresa	(2,5));
 							//						mana.BtnAtrasMap.onClick.AddListener(()=>StartCoroutine(mana.Volver3D()));
 						}
@@ -150,7 +150,7 @@ public class arRaycaster : MonoBehaviour {
 							//						Atras3D.SetActive(false);
 			
 							//				Nombre.text="caso1";
-							mana.				Empresa	(3,5);
+							mana.		EmpresaRay(3);
 							//				StartCoroutine(				mana.				Empresa	(3,5));
 							//						mana.BtnAtrasMap.onClick.AddListener(()=>StartCoroutine(mana.Volver3D()));
 						}
@@ -164,7 +164,7 @@ public class arRaycaster : MonoBehaviour {
 							//					Atras3D.SetActive(false);
 			
 							//					Nombre.text="caso1";
-							mana.				Empresa	(6,5);
+							mana.		EmpresaRay(6);
 							//				StartCoroutine(				mana.				Empresa	(6,5));
 							//					mana.BtnAtrasMap.onClick.AddListener(()=>StartCoroutine(mana.Volver3D()));
 						}
@@ -175,7 +175,7 @@ public class arRaycaster : MonoBehaviour {
 
 							//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
-							mana.				Empresa	(7,5);
+							mana.		EmpresaRay(7);
 			
 							//				StartCoroutine(				mana.				Empresa	(7,5));
 							//					mana.BtnAtrasMap.onClick.AddListener(()=>StartCoroutine(mana.Volver3D()));
@@ -187,7 +187,7 @@ public class arRaycaster : MonoBehaviour {
 
 							//					Reubica.SetActive(false);
 							//					Atras3D.SetActive(false);
-							mana.				Empresa	(8,5);
+							mana.		EmpresaRay(8);
 			
 			
 							//StartCoroutine(				mana.				Empresa	(8,5));
@@ -202,7 +202,7 @@ public class arRaycaster : MonoBehaviour {
 							//					Atras3D.SetActive(false);
 			
 							//					Nombre.text="caso1";
-							mana.					Empresa	(5,5);
+							mana.		EmpresaRay(5);
 	
 
 							//				StartCoroutine(				mana.					Empresa	(5,5));
