@@ -30,7 +30,8 @@ public class Manager : MonoBehaviour
 	
 	/// </Modelos>
     
-  
+	private Vector3 scaleChange, positionChange;
+
   
 	public Button flechaD,FlechaI,BuscaPlano,Aurora,Ayuda,giraModelo;
 	public GameObject Contenedor,Tuto1,Tuto2,Tuto3,Reubica,Atras3D,BtnsLeyenda,Marco3d;
@@ -141,8 +142,11 @@ public class Manager : MonoBehaviour
 	    BuscaPlano.onClick.AddListener(()=>BuscaPlano3d());
 	   
 	    
+	    
+		scaleChange = new Vector3(-0.01f, -0.01f, -0.01f);
+		positionChange = new Vector3(0.0f, -0.005f, 0.0f);
 		
-	}
+	}// fin start
     
     
 	void BuscaPlano3d()
@@ -463,7 +467,7 @@ public class Manager : MonoBehaviour
 		
 		Debug.Log(ZonaFranca.transform.position);
 		
-		/*
+		
 		
 		// si hay dos dedo pulsando la pantalla
 		
@@ -471,20 +475,24 @@ public class Manager : MonoBehaviour
 		{
 			//variable para el dedo que toca la pantalla
 			Touch dedo = Input.GetTouch(1);
-			
+			objeto.transform.localScale += scaleChange;
+			objeto.transform.position += positionChange;
 			
 			// si ese dedo se movio
 			if (dedo.phase == TouchPhase.Moved)
 			{
-				// roto el objeto en funcion a la posicion en X en la que se movio
-				objeto.transform.Rotate(0f,dedo.deltaPosition.x,0f);
+				if (objeto.transform.localScale.y < 1f || objeto.transform.localScale.y > 5f)
+				{
+					scaleChange = -scaleChange;
+					positionChange = -positionChange;
+				}
 				
 				
 			}
 		
 		}
 		// // // // // // // // // // // // // // // // / //
-		*/
+		
 	
 	}// fin Update
 

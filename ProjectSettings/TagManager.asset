@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TagMana
   - TagPresionado
+  - EdificiosBtn
   layers:
   - Default
   - TransparentFX

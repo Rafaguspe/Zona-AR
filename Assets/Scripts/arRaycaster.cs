@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class arRaycaster : MonoBehaviour {
     
@@ -9,6 +10,7 @@ public class arRaycaster : MonoBehaviour {
 
 	public GameObject penderPanel;
 	public GameObject objetoIns;
+	public TMP_Text Descripcion;
 	bool activo=false;
 	
 	
@@ -56,13 +58,22 @@ public class arRaycaster : MonoBehaviour {
 			dragging = false; 
 		}
 		
-		
+	
+			
 		
 		// Touch raycast
 		if (Input.touchCount > 0) {
 			Touch touch = Input.GetTouch(0);
 			var touchPositon = touch.position;
+			
+			
+			Descripcion.text="Posicion del touch"+touchPositon;
+			
+	
+			
 			Ray touchRay = arCamera.ScreenPointToRay(touchPositon);
+			
+			
 			switch (touch.phase)
 			{
 			case TouchPhase.Began :
@@ -83,7 +94,10 @@ public class arRaycaster : MonoBehaviour {
 			if (touch.phase == TouchPhase.Began) {
 
 				RaycastHit hitObject;
-				if (Physics.Raycast(touchRay,out hitObject)) {
+				
+				
+				
+				if (Physics.Raycast(touchRay,out hitObject)&&hitObject.transform.tag == "EdificiosBtn" ) {
 					
 					string nam;
 					nam=hitObject.transform.name;
@@ -96,7 +110,12 @@ public class arRaycaster : MonoBehaviour {
 						activo==false&&nam=="BtnDispensario"||activo==false&&nam=="BtnT-eco"||
 						activo==false&&nam=="BtnAmle"||activo==false&&nam=="BtnLigna"||
 						activo==false&&nam=="BtnControlEng"||activo==false&&nam=="BtnAdministracion"
-						||activo==false&&nam=="Cube"){
+						||activo==false&&nam=="Cube"
+						||activo==false&&nam=="bb"
+						||activo==false&&nam=="bb1"
+						||activo==false&&nam=="bb2"
+						||activo==false&&nam=="bb3"
+					){
 							
 						//penderPanel=hitObject.transform.GetChild(1).gameObject;
 						//			penderPanel.SetActive(true);
@@ -209,6 +228,9 @@ public class arRaycaster : MonoBehaviour {
 							//					mana.BtnAtrasMap.onClick.AddListener(()=> StartCoroutine(mana.Volver3D()));
 						}
 
+
+
+						
 						
 						
 						//			objetoIns=hitObject.transform.GetChild(0).gameObject;
@@ -226,7 +248,12 @@ public class arRaycaster : MonoBehaviour {
 							}
 						}
 				}
-			}
+				else
+				{
+					Destroy(touchLine.gameObject,1f);
+					StartCoroutine(DestroyLineSmoothly(touchLine));
+				}
+			}//fin touch began
 		
 			
 			//float X = Input.GetAxis ("Mouse X") * RotationSpeed * Time.fixedDeltaTime;
@@ -256,7 +283,7 @@ public class arRaycaster : MonoBehaviour {
 			hit.transform.localScale *= 0.99f;
             
 		}
-	}
+	}// fin Update
 	
 	
 	//void FixedUpdate()
