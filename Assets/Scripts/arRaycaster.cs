@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
+
+
 
 public class arRaycaster : MonoBehaviour {
     
@@ -59,6 +62,15 @@ public class arRaycaster : MonoBehaviour {
 	
 		
 		Descripcion.text= ubi;
+		
+		
+		if (!EventSystem.current.IsPointerOverGameObject())
+		{
+			//	Destroy(touchLine.gameObject,1f);
+			//StartCoroutine(DestroyLineSmoothly(touchLine));
+			
+		}
+		
 		
 		
 		if(Input.GetMouseButtonUp (0))

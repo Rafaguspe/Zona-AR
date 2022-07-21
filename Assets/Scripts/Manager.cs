@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.EventSystems;
 
 public class Manager : MonoBehaviour
 {
@@ -118,8 +118,12 @@ public class Manager : MonoBehaviour
 	   
 	    
 	    
-		//		scaleChange = new Vector3(-0.01f, -0.01f, -0.01f);
-		//positionChange = new Vector3(0.0f, -0.005f, 0.0f);
+		
+		
+		
+	
+		
+		
 		
 	}// fin start
     
@@ -429,9 +433,9 @@ public class Manager : MonoBehaviour
 		
 		Vector3 scala= objeto.transform.localScale;
 		
-		if (scala.x>5 || scala.y>5 || scala.z>5)
+		if (scala.x>7 || scala.y>7 || scala.z>7)
 		{
-			objeto.transform.localScale= new Vector3(5,5,5);
+			objeto.transform.localScale= new Vector3(7,7,7);
 		}
 	
 		if (scala.x<1 || scala.y<1 || scala.z<1)
@@ -450,10 +454,7 @@ public class Manager : MonoBehaviour
 	}// fin Girar Modelo
 
 	
-	void Nada()
-	{
-		Debug.Log("No hago nada");
-	}
+	
 	
 
 	public	void EmpresaRay(int emp)
