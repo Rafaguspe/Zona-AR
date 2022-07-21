@@ -29,8 +29,10 @@ public class Manager : MonoBehaviour
 	
 	
 	/// </Modelos>
-    
-	private Vector3 scaleChange, positionChange;
+	private float initialDistance;
+	private Vector3 initialScale;
+
+	//	private Vector3 scaleChange, positionChange;
 
   
 	public Button flechaD,FlechaI,BuscaPlano,Aurora,Ayuda,giraModelo;
@@ -42,6 +44,8 @@ public class Manager : MonoBehaviour
 	
 	UI_HoldButton Presionado;
 
+	public GameObject raycast;
+    
     
     void Start()
 	{
@@ -58,36 +62,7 @@ public class Manager : MonoBehaviour
 		//BtnAtras.onClick.AddListener(()=>StartCoroutine(back()));
 		
 		BtnAtras.onClick.AddListener(()=>back());
-		/*
-		btn1.onClick.AddListener(()=>StartCoroutine(Empresa(1,4)));
 		
-	    btnleyd1.onClick.AddListener(()=> StartCoroutine(Empresa(1,4)));
-	    
-		btn2.onClick.AddListener(()=>StartCoroutine( Empresa(2,4)));
-	    btnleyd2.onClick.AddListener(()=> StartCoroutine( Empresa(2,4)));
-	    
-	    btn3.onClick.AddListener(()=>StartCoroutine( Empresa(3,4)));
-	    btnleyd3.onClick.AddListener(()=>StartCoroutine( Empresa(3,4)));
-	    
-	    btn4.onClick.AddListener(()=>StartCoroutine( Empresa(4,4)));
-	    btnleyd4.onClick.AddListener(()=>StartCoroutine( Empresa(4,4)));
-	    
-	    btn5.onClick.AddListener(()=>StartCoroutine( Empresa(5,4)));
-	    btnleyd5.onClick.AddListener(()=>StartCoroutine( Empresa(5,4)));
-	    
-	    btn6.onClick.AddListener(()=>StartCoroutine( Empresa(6,4)));
-	    btnleyd6.onClick.AddListener(()=>StartCoroutine( Empresa(6,4)));
-	    
-	    btn7.onClick.AddListener(()=>StartCoroutine( Empresa(7,4)));
-	    btnleyd7.onClick.AddListener(()=>StartCoroutine( Empresa(7,4)));
-	    
-	    
-	    btn8.onClick.AddListener(()=>StartCoroutine( Empresa(8,4)));
-	    btnleyd8.onClick.AddListener(()=>StartCoroutine( Empresa(8,4)));
-	    
-		*/
-		
-		//Ayuda.onClick.AddListener(()=> StartCoroutine(tutorial()));
 		
 		btn1.onClick.AddListener(()=>Empresa(1,4));
 		
@@ -143,8 +118,8 @@ public class Manager : MonoBehaviour
 	   
 	    
 	    
-		scaleChange = new Vector3(-0.01f, -0.01f, -0.01f);
-		positionChange = new Vector3(0.0f, -0.005f, 0.0f);
+		//		scaleChange = new Vector3(-0.01f, -0.01f, -0.01f);
+		//positionChange = new Vector3(0.0f, -0.005f, 0.0f);
 		
 	}// fin start
     
@@ -165,20 +140,7 @@ public class Manager : MonoBehaviour
 		infoEmpresa.SetActive(false);
 		Mapa2D.SetActive(false);
 		Inicio.SetActive(true);
-		//Mapa2D.transform.position = new	Vector3(966,y,0f);
-		//	BtnAtras3d.onClick.AddListener(()=>StartCoroutine(Iniciox3D()));
 		
-	
-		/*
-		for (int i = y; i >= 540;i-=100) {
-			Inicio.transform.position = new	Vector3(1170,i,0);
-			yield return new WaitForSeconds(sec);
-			
-		}
-		
-		
-		Inicio.transform.position = new	Vector3(1170,540,0);
-		*/
 		ZonaFranca.SetActive(false);
 		gira.enabled=true;
 		
@@ -218,22 +180,7 @@ public class Manager : MonoBehaviour
 		infoEmpresa.SetActive(false);
 		Mapa2D.SetActive(true);
 		BtnsLeyenda.SetActive(false);
-		/*
-		int x=1180;
-		float sec=0.00000001f;
 		
-		for (int i = x; i <= 4000;i+=100) {
-			infoEmpresa.transform.position = new	Vector3(i,540,0);
-			yield return new WaitForSeconds(sec);
-			Debug.Log(infoEmpresa.transform.position);
-			
-		}
-		infoEmpresa.transform.position = new	Vector3(4000,540,0);
-		
-		ZonaFranca.SetActive(false);
-		infoEmpresa.SetActive(false);
-		yield return new WaitForSeconds(0.000000005f);
-		*/
 		BtnsLeyenda.SetActive(true);
 		
 	}//Fin IRmapa2D
@@ -251,15 +198,7 @@ public class Manager : MonoBehaviour
 		//Mapa2D.transform.position = new	Vector3(966,y,0f);
 		Mapa2D.SetActive(true);
 		
-		/*
-		for (int i = y; i >= 540;i-=100) {
-			Mapa2D.transform.position = new	Vector3(1170,i,0);
-			yield return new WaitForSeconds(sec);
-			
-		}
-		Mapa2D.transform.position = new	Vector3(1170,540,0);
 		
-		*/
 		ZonaFranca.SetActive(false);
 		Inicio.SetActive(false);
 		
@@ -272,19 +211,7 @@ public class Manager : MonoBehaviour
 		infoEmpresa.SetActive(false);
 		ZonaFranca.SetActive(false);
 		Inicio.SetActive(true);
-		/*
 		
-		int y=1630;
-		float sec=0.0000000001f;
-		
-		for (int i = 540; i <= y;i+=100) {
-			Mapa2D.transform.position = new	Vector3(1170,i,0);
-			yield return new WaitForSeconds(sec);
-			
-		}
-		Mapa2D.transform.position = new	Vector3(1170,y,0);
-		
-		*/
 		
 		Mapa2D.SetActive(false);	
 		
@@ -305,28 +232,10 @@ public class Manager : MonoBehaviour
 		Ayuda.onClick.AddListener(()=> StartCoroutine(tutorial()));
 		BtnAtras3d.onClick.AddListener(()=>Iniciox3D());
 		objeto=Dispensario.transform;
-		//	BtnAtras3d.onClick.AddListener(()=>StartCoroutine(Iniciox3D()));
 		
-		
-		/*
-		
-		int y=1630;
-		float sec=0.0000000001f;
-		
-		for (int i = 540; i <= y;i+=100) {
-			Inicio.transform.position = new	Vector3(1170,i,0);
-			yield return new WaitForSeconds(sec);
-			
-		}
-		Inicio.transform.position = new	Vector3(1170,y,0);
-		ZonaFranca.transform.position = new	Vector3(173.21f,469.32f,-1554);
-		*/
 		Inicio.SetActive(false);
 		
-		/*
 		
-		
-		*/
 		gira.enabled=true;
 		
 	}//Fin IRmapa3D
@@ -439,21 +348,7 @@ public class Manager : MonoBehaviour
 		
 		}// fin switch
 		
-		/*
-		int x=3000;
-		float sec=0.00000001f;
 		
-		for (int i = x; i >= 1180;i-=170) {
-			infoEmpresa.transform.position = new	Vector3(i,540,0);
-			yield return new WaitForSeconds(sec);
-			Debug.Log(infoEmpresa.transform.position);
-			
-		}
-		infoEmpresa.transform.position = new	Vector3(1170,540,0);
-		
-		
-		infoEmpresa.transform.position = new	Vector3(1170,540,0);
-		*/
 		Mapa2D.SetActive(false);	
 		
 		
@@ -466,32 +361,83 @@ public class Manager : MonoBehaviour
 	{
 		
 		Debug.Log(ZonaFranca.transform.position);
-		
-		
-		
-		// si hay dos dedo pulsando la pantalla
-		
-		if (Input.touchCount ==2)
+			
+			
+		if (Input.touchCount ==1)
 		{
 			//variable para el dedo que toca la pantalla
-			Touch dedo = Input.GetTouch(1);
-			objeto.transform.localScale += scaleChange;
-			objeto.transform.position += positionChange;
+			Touch dedo = Input.GetTouch(0);
+			
 			
 			// si ese dedo se movio
 			if (dedo.phase == TouchPhase.Moved)
 			{
-				if (objeto.transform.localScale.y < 1f || objeto.transform.localScale.y > 5f)
-				{
-					scaleChange = -scaleChange;
-					positionChange = -positionChange;
-				}
+				// roto el objeto en funcion a la posicion en X en la que se movio
+				objeto.transform.Rotate(0f,dedo.deltaPosition.x,0f);
 				
 				
 			}
 		
 		}
+			
+			
+			
+			
+			
+			
+			
+			if(Input.touchCount ==2)
+			{
+				var touchZero= Input.GetTouch(0);
+				var touchOne= Input.GetTouch(1);
+
+				//if any one of touchZero or touchOne is cancelled or maybe ended then nothing
+				if(touchZero.phase == TouchPhase.Ended || touchZero.phase == TouchPhase.Canceled||
+					touchOne.phase == TouchPhase.Ended || touchOne.phase == TouchPhase.Canceled)
+				{
+					return; //basically do nothing
+
+				}
+
+				if(touchZero.phase == TouchPhase.Began ||touchOne.phase == TouchPhase.Began)
+				{
+					initialDistance= Vector2.Distance(touchZero.position,touchOne.position);
+					initialScale= objeto.transform.localScale;
+					Debug.Log("Distancia Inicial:" + initialDistance);
+				}
+				else // if touch is moved
+				{
+					var currentDistance= Vector2.Distance(touchZero.position,touchOne.position);
+
+					// if accidentally touched or pinch movement is very small
+
+					if(Mathf.Approximately(initialDistance,0))
+					{
+						return;// do nothing if it can be ignored where initial distance is very close to zero
+
+					}
+
+					var factor= currentDistance / initialDistance;
+					objeto.transform.localScale = initialScale * factor;
+
+
+
+				}
+		
+		}
 		// // // // // // // // // // // // // // // // / //
+		
+		Vector3 scala= objeto.transform.localScale;
+		
+		if (scala.x>5 || scala.y>5 || scala.z>5)
+		{
+			objeto.transform.localScale= new Vector3(5,5,5);
+		}
+	
+		if (scala.x<1 || scala.y<1 || scala.z<1)
+		{
+			objeto.transform.localScale= new Vector3(1,1,1);
+		}
 		
 	
 	}// fin Update
@@ -512,6 +458,8 @@ public class Manager : MonoBehaviour
 
 	public	void EmpresaRay(int emp)
 	{
+		
+		raycast.SetActive(false);
 		
 		for (int i = 0; i < 4; i++) {
 			btns3D[i].SetActive(false);
@@ -600,6 +548,7 @@ public class Manager : MonoBehaviour
 	public	void CerrarEmpresaRay()
 	{
 		infoEmpresa3D.SetActive(false);
+		raycast.SetActive(true);
 
 		Debug.Log(Contenedor.transform.position);
 		Contenedor.transform.position = new	Vector3(3000,1600,0f);

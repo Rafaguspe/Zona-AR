@@ -29,7 +29,7 @@ public class arRaycaster : MonoBehaviour {
 	
 	[SerializeField]
 	[Tooltip("Camera for raycast, default is Camera which tagged as MainCamera")]
-	private Camera arCamera;
+	public Camera arCamera;
 	[SerializeField]
 	[Tooltip("Material of Drawn Raycast line")]
 	private Material lineMaterial;
@@ -53,6 +53,14 @@ public class arRaycaster : MonoBehaviour {
 	
 	void Update() {
 		
+		Vector3 ubi3= arCamera.transform.position;
+		
+		string ubi= ubi3.ToString();
+	
+		
+		Descripcion.text= ubi;
+		
+		
 		if(Input.GetMouseButtonUp (0))
 		{
 			dragging = false; 
@@ -67,7 +75,6 @@ public class arRaycaster : MonoBehaviour {
 			var touchPositon = touch.position;
 			
 			
-			Descripcion.text="Posicion del touch"+touchPositon;
 			
 	
 			
@@ -76,7 +83,7 @@ public class arRaycaster : MonoBehaviour {
 			
 			switch (touch.phase)
 			{
-			case TouchPhase.Began :
+			case TouchPhase.Stationary :
 				touchLine = CreateLine("touchLine",Color.clear);
 				touchLine.SetPosition(0,touchRay.origin - new Vector3(0,0.1f,0));
 				touchLine.SetPosition(1,touchRay.direction*10f);
@@ -91,12 +98,11 @@ public class arRaycaster : MonoBehaviour {
 				touchLine.SetPosition(1,touchRay.direction*10f);
 				break;
 			}
-			if (touch.phase == TouchPhase.Began) {
+			if (touch.phase == TouchPhase.Stationary) {
 
 				RaycastHit hitObject;
 				
-				
-				
+		
 				if (Physics.Raycast(touchRay,out hitObject)&&hitObject.transform.tag == "EdificiosBtn" ) {
 					
 					string nam;
@@ -327,4 +333,9 @@ public class arRaycaster : MonoBehaviour {
 		}
 		Destroy(line.gameObject);
 	}
+	
+	
+	
+	
+	
 }
