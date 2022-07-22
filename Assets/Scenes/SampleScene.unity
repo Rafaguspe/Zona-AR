@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402182, g: 0.49316454, b: 0.5722313, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -597,7 +597,7 @@ MonoBehaviour:
   ZonaFranca: {fileID: 1536958430}
   Dispensario: {fileID: 1664694190}
   PF: {fileID: 1913582250}
-  btnGiraGO: {fileID: 781728755}
+  btnGiraGO: {fileID: 0}
   btn2D: {fileID: 1798586006}
   btn3D: {fileID: 1550045487}
   btn1: {fileID: 332239824}
@@ -660,7 +660,6 @@ MonoBehaviour:
   BuscaPlano: {fileID: 1369919524}
   Aurora: {fileID: 1951262795}
   Ayuda: {fileID: 680656803}
-  giraModelo: {fileID: 781728758}
   Contenedor: {fileID: 2048692246}
   Tuto1: {fileID: 933508535}
   Tuto2: {fileID: 1629615626}
@@ -674,7 +673,6 @@ MonoBehaviour:
   - {fileID: 1369919522}
   - {fileID: 455281561}
   - {fileID: 680656801}
-  - {fileID: 781728755}
   raycast: {fileID: 302659899}
 --- !u!4 &75404368
 Transform:
@@ -1708,6 +1706,7 @@ GameObject:
   - component: {fileID: 303365860}
   - component: {fileID: 303365859}
   - component: {fileID: 303365863}
+  - component: {fileID: 303365864}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1821,6 +1820,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &303365864
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303365858}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &328578479
 GameObject:
   m_ObjectHideFlags: 0
@@ -2483,6 +2494,7 @@ GameObject:
   - component: {fileID: 455281565}
   - component: {fileID: 455281564}
   - component: {fileID: 455281563}
+  - component: {fileID: 455281566}
   m_Layer: 5
   m_Name: BotonAtras3D
   m_TagString: Untagged
@@ -2592,6 +2604,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455281561}
   m_CullTransparentMesh: 1
+--- !u!65 &455281566
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455281561}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 150, y: 150, z: 3000}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &458010393
 GameObject:
   m_ObjectHideFlags: 0
@@ -3452,6 +3477,7 @@ GameObject:
   - component: {fileID: 680656805}
   - component: {fileID: 680656804}
   - component: {fileID: 680656803}
+  - component: {fileID: 680656806}
   m_Layer: 5
   m_Name: AyudaBtn
   m_TagString: Untagged
@@ -3561,6 +3587,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680656801}
   m_CullTransparentMesh: 1
+--- !u!65 &680656806
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680656801}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 150, y: 150, z: 3000}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -5893,11 +5932,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4108027c737ec784ea9cad10e14eff94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  c1: {fileID: 0}
-  c2: {fileID: 0}
-  c3: {fileID: 0}
-  c4: {fileID: 0}
   Descripcion: {fileID: 278279177}
+  distan: 5
 --- !u!4 &1054098992
 Transform:
   m_ObjectHideFlags: 0
@@ -7303,6 +7339,7 @@ GameObject:
   - component: {fileID: 1369919526}
   - component: {fileID: 1369919525}
   - component: {fileID: 1369919524}
+  - component: {fileID: 1369919527}
   m_Layer: 5
   m_Name: ReubicaPlano
   m_TagString: Untagged
@@ -7412,6 +7449,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369919522}
   m_CullTransparentMesh: 1
+--- !u!65 &1369919527
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369919522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 150, y: 150, z: 3000}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1388795852
 GameObject:
   m_ObjectHideFlags: 0

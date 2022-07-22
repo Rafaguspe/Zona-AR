@@ -64,13 +64,7 @@ public class arRaycaster : MonoBehaviour {
 		Descripcion.text= ubi;
 		
 		
-		if (!EventSystem.current.IsPointerOverGameObject())
-		{
-			//	Destroy(touchLine.gameObject,1f);
-			//StartCoroutine(DestroyLineSmoothly(touchLine));
-			
-		}
-		
+	
 		
 		
 		if(Input.GetMouseButtonUp (0))
@@ -95,7 +89,7 @@ public class arRaycaster : MonoBehaviour {
 			
 			switch (touch.phase)
 			{
-			case TouchPhase.Stationary :
+			case TouchPhase.Began :
 				touchLine = CreateLine("touchLine",Color.clear);
 				touchLine.SetPosition(0,touchRay.origin - new Vector3(0,0.1f,0));
 				touchLine.SetPosition(1,touchRay.direction*10f);
@@ -110,29 +104,36 @@ public class arRaycaster : MonoBehaviour {
 				touchLine.SetPosition(1,touchRay.direction*10f);
 				break;
 			}
-			if (touch.phase == TouchPhase.Stationary) {
+			
+			
+			
+			
+			
+			if (touch.phase == TouchPhase.Began) {
 
 				RaycastHit hitObject;
 				
 		
-				if (Physics.Raycast(touchRay,out hitObject)&&hitObject.transform.tag == "EdificiosBtn" ) {
+				if (Physics.Raycast(touchRay,out hitObject) ) {
 					
 					string nam;
 					nam=hitObject.transform.name;
 					
 					
 					//hitObject.transform.localScale *= 1.2f;
-					if(activo==false&&nam=="BtnAurora"||activo==false&&nam=="BtnAurora1"||
-						activo==false&&nam=="BtnAurora2"||activo==false&&nam=="BtnAurora3"||
-						activo==false&&nam=="BtnAurora4"||activo==false&&nam=="BtnComedor"||
-						activo==false&&nam=="BtnDispensario"||activo==false&&nam=="BtnT-eco"||
-						activo==false&&nam=="BtnAmle"||activo==false&&nam=="BtnLigna"||
-						activo==false&&nam=="BtnControlEng"||activo==false&&nam=="BtnAdministracion"
+					if(activo==false&&nam=="BtnAurora" 
+						||activo==false&&nam=="BtnAurora1" 
+						||activo==false&&nam=="BtnAurora2" 
+						||activo==false&&nam=="BtnAurora3" 
+						||activo==false&&nam=="BtnAurora4" 
+						||activo==false&&nam=="BtnComedor"
+						||activo==false&&nam=="BtnDispensario"
+						||activo==false&&nam=="BtnT-eco"
+						||activo==false&&nam=="BtnLigna"
+						||activo==false&&nam=="BtnControlEng"
+						||activo==false&&nam=="BtnAdministracion"
 						||activo==false&&nam=="Cube"
-						||activo==false&&nam=="bb"
-						||activo==false&&nam=="bb1"
-						||activo==false&&nam=="bb2"
-						||activo==false&&nam=="bb3"
+			
 					){
 							
 						//penderPanel=hitObject.transform.GetChild(1).gameObject;
@@ -273,6 +274,7 @@ public class arRaycaster : MonoBehaviour {
 				}
 			}//fin touch began
 		
+		
 			
 			//float X = Input.GetAxis ("Mouse X") * RotationSpeed * Time.fixedDeltaTime;
 			//float y = Input.GetAxis ("Mouse Y") * RotationSpeed * Time.fixedDeltaTime;
@@ -284,9 +286,9 @@ public class arRaycaster : MonoBehaviour {
 	
 			
 	
-	
+			}
 			
-		}
+		
 
 
 		// Viewpoint raycast
@@ -301,20 +303,23 @@ public class arRaycaster : MonoBehaviour {
 			hit.transform.localScale *= 0.99f;
             
 		}
+		
+		
+		
+		
+		
+		
+		
 	}// fin Update
 	
 	
-	//void FixedUpdate()
-	//{
-	//	if(dragging)
-	//	{
-	//		float X = Input.GetAxis ("Mouse X") * RotationSpeed * Time.fixedDeltaTime;
-	//		float y = Input.GetAxis ("Mouse Y") * RotationSpeed * Time.fixedDeltaTime;
-	//		rb.AddTorque (Vector3.down*X);
-	//		rb.AddTorque (Vector3.right*y);
-			
-	//	}
-	//}
+	
+	private bool DedoSobreUI()
+	{
+		return EventSystem.current.IsPointerOverGameObject();
+	}
+	
+	
 	
 	
 	

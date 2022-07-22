@@ -35,7 +35,7 @@ public class Manager : MonoBehaviour
 	//	private Vector3 scaleChange, positionChange;
 
   
-	public Button flechaD,FlechaI,BuscaPlano,Aurora,Ayuda,giraModelo;
+	public Button flechaD,FlechaI,BuscaPlano,Aurora,Ayuda;//giraModelo;
 	public GameObject Contenedor,Tuto1,Tuto2,Tuto3,Reubica,Atras3D,BtnsLeyenda,Marco3d;
 	int tuto=0;
 	public int ventana;
@@ -462,7 +462,7 @@ public class Manager : MonoBehaviour
 		
 		raycast.SetActive(false);
 		
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 3; i++) {
 			btns3D[i].SetActive(false);
 		}
 		
@@ -556,7 +556,7 @@ public class Manager : MonoBehaviour
 		
 		
 		
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 3; i++) {
 			btns3D[i].SetActive(true);
 		}
 		

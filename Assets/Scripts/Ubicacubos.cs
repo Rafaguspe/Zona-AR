@@ -8,9 +8,10 @@ public class Ubicacubos : MonoBehaviour
 {
 	Manager mana;
 	arRaycaster ray;
-	public GameObject c1,c2,c3,c4;
-	public TMP_Text Descripcion;
 	
+	public TMP_Text Descripcion;
+	RaycastHit2D ray2d;
+	public float distan;
     // Start is called before the first frame update
     void Start()
 	{
@@ -21,19 +22,17 @@ public class Ubicacubos : MonoBehaviour
     // Update is called once per frame
     void Update()
 	{
-		Vector3 ubica=ray.arCamera.transform.position;
-    	
-		c1.transform.position= new Vector3(ubica.x,ubica.y,ubica.z);
-		c2.transform.position= new Vector3(ubica.x,ubica.y,ubica.z);
-		c3.transform.position= new Vector3(ubica.x,ubica.y,ubica.z);
-		c4.transform.position= new Vector3(ubica.x,ubica.y,ubica.z);
-    	
-		Vector3 ubi3= c1.transform.position;
 		
-		string ubi= ubi3.ToString();
+		if (Input.touchCount > 0) {
+			Touch touch = Input.GetTouch(0);
+			var touchPositon = touch.position;
+		
 	
 		
-		Descripcion.text= "cubo "+ubi;
-        
-    }
+		
+		
+		}
+		
+	}
+		
 }
