@@ -671,7 +671,6 @@ MonoBehaviour:
   ventana: 0
   btns3D:
   - {fileID: 1369919522}
-  - {fileID: 455281561}
   - {fileID: 680656801}
   raycast: {fileID: 302659899}
 --- !u!4 &75404368
@@ -1706,7 +1705,6 @@ GameObject:
   - component: {fileID: 303365860}
   - component: {fileID: 303365859}
   - component: {fileID: 303365863}
-  - component: {fileID: 303365864}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1820,18 +1818,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!225 &303365864
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 303365858}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &328578479
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,7 +2487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &455281562
 RectTransform:
   m_ObjectHideFlags: 0
