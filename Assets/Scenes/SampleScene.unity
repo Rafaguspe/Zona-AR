@@ -1676,7 +1676,7 @@ MonoBehaviour:
   objetoIns: {fileID: 0}
   Descripcion: {fileID: 1700757698}
   arCamera: {fileID: 1597907568}
-  lineMaterial: {fileID: 2100000, guid: ca3bcdc1d2264a64e8e891d9501dc955, type: 2}
+  lineMaterial: {fileID: 2100000, guid: 7b7af8105db5c7a409450ef6b19a6c35, type: 2}
 --- !u!4 &302659901
 Transform:
   m_ObjectHideFlags: 0
@@ -2480,7 +2480,6 @@ GameObject:
   - component: {fileID: 455281565}
   - component: {fileID: 455281564}
   - component: {fileID: 455281563}
-  - component: {fileID: 455281566}
   m_Layer: 5
   m_Name: BotonAtras3D
   m_TagString: Untagged
@@ -2590,19 +2589,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455281561}
   m_CullTransparentMesh: 1
---- !u!65 &455281566
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 455281561}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 150, y: 150, z: 3000}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &458010393
 GameObject:
   m_ObjectHideFlags: 0
@@ -3463,7 +3449,6 @@ GameObject:
   - component: {fileID: 680656805}
   - component: {fileID: 680656804}
   - component: {fileID: 680656803}
-  - component: {fileID: 680656806}
   m_Layer: 5
   m_Name: AyudaBtn
   m_TagString: Untagged
@@ -3573,19 +3558,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680656801}
   m_CullTransparentMesh: 1
---- !u!65 &680656806
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680656801}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 150, y: 150, z: 3000}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -7325,7 +7297,6 @@ GameObject:
   - component: {fileID: 1369919526}
   - component: {fileID: 1369919525}
   - component: {fileID: 1369919524}
-  - component: {fileID: 1369919527}
   m_Layer: 5
   m_Name: ReubicaPlano
   m_TagString: Untagged
@@ -7435,19 +7406,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369919522}
   m_CullTransparentMesh: 1
---- !u!65 &1369919527
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369919522}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 150, y: 150, z: 3000}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1388795852
 GameObject:
   m_ObjectHideFlags: 0

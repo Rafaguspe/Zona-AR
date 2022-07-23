@@ -37,6 +37,7 @@ public class AtrasBtnAndroid : MonoBehaviour
 		    case 3: 
 			    // StartCoroutine( mana.Iniciox3D());
 			    mana.Iniciox3D();
+			    mana.CerrarEmpresaRay();
 			    mana.ventana=1;
 			    break;    
 		   

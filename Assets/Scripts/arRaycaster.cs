@@ -61,7 +61,7 @@ public class arRaycaster : MonoBehaviour {
 		string ubi= ubi3.ToString();
 	
 		
-		Descripcion.text= ubi;
+		//Descripcion.text= ubi;
 		
 		
 	
@@ -125,7 +125,8 @@ public class arRaycaster : MonoBehaviour {
 						||activo==false&&nam=="BtnAurora1" 
 						||activo==false&&nam=="BtnAurora2" 
 						||activo==false&&nam=="BtnAurora3" 
-						||activo==false&&nam=="BtnAurora4" 
+						||activo==false&&nam=="BtnAurora4"
+						||activo==false&&nam=="BtnAmle" 
 						||activo==false&&nam=="BtnComedor"
 						||activo==false&&nam=="BtnDispensario"
 						||activo==false&&nam=="BtnT-eco"

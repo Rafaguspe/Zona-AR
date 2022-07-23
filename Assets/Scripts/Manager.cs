@@ -29,8 +29,9 @@ public class Manager : MonoBehaviour
 	
 	
 	/// </Modelos>
-	private float initialDistance;
+	private float initialDistance,initialDistance1;
 	private Vector3 initialScale;
+	private Vector2 posfinal;
 
 	//	private Vector3 scaleChange, positionChange;
 
@@ -373,16 +374,42 @@ public class Manager : MonoBehaviour
 			Touch dedo = Input.GetTouch(0);
 			
 			
+			Vector2 origen= new Vector2(0,0);
+			
+			
+			
+			
 			// si ese dedo se movio
 			if (dedo.phase == TouchPhase.Moved)
 			{
+				
+				initialDistance1= Vector2.Distance(origen,dedo.position);
+				
+				nomedi.text=initialDistance1.ToString();
+				
+				
+				if(Mathf.Approximately(initialDistance1,1100))
+				{
+					return;// do nothing if it can be ignored where initial distance is very close to zero
+
+				}
+				
+				
 				// roto el objeto en funcion a la posicion en X en la que se movio
 				objeto.transform.Rotate(0f,dedo.deltaPosition.x,0f);
 				
 				
+			}//si el dedo es movido
+			
+			else
+			{
+			
 			}
+			
+			
+			
 		
-		}
+		}// si toca con un dedo
 			
 			
 			
@@ -399,12 +426,14 @@ public class Manager : MonoBehaviour
 				if(touchZero.phase == TouchPhase.Ended || touchZero.phase == TouchPhase.Canceled||
 					touchOne.phase == TouchPhase.Ended || touchOne.phase == TouchPhase.Canceled)
 				{
+					raycast.GetComponent<arRaycaster>().enabled=true;
 					return; //basically do nothing
 
 				}
 
 				if(touchZero.phase == TouchPhase.Began ||touchOne.phase == TouchPhase.Began)
 				{
+					raycast.GetComponent<arRaycaster>().enabled=false;
 					initialDistance= Vector2.Distance(touchZero.position,touchOne.position);
 					initialScale= objeto.transform.localScale;
 					Debug.Log("Distancia Inicial:" + initialDistance);
@@ -427,6 +456,7 @@ public class Manager : MonoBehaviour
 
 
 				}
+			
 		
 		}
 		// // // // // // // // // // // // // // // // / //
@@ -461,8 +491,9 @@ public class Manager : MonoBehaviour
 	{
 		
 		raycast.SetActive(false);
+		raycast.GetComponent<arRaycaster>().enabled=false;
 		
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 2; i++) {
 			btns3D[i].SetActive(false);
 		}
 		
@@ -550,6 +581,7 @@ public class Manager : MonoBehaviour
 	{
 		infoEmpresa3D.SetActive(false);
 		raycast.SetActive(true);
+		raycast.GetComponent<arRaycaster>().enabled=true;
 
 		Debug.Log(Contenedor.transform.position);
 		Contenedor.transform.position = new	Vector3(3000,1600,0f);
