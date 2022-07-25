@@ -45,7 +45,7 @@ public class Manager : MonoBehaviour
 	
 	UI_HoldButton Presionado;
 
-	public GameObject raycast,VentanaTutorial;
+	public GameObject raycast,VentanaTutorial,groundPlane;
     
 	public Button siguientBTN;
 	
@@ -53,6 +53,7 @@ public class Manager : MonoBehaviour
     
     void Start()
 	{
+		
 		gira.enabled=true;
 		Presionado=GameObject.FindGameObjectWithTag("TagPresionado").GetComponent<UI_HoldButton>();
 		ventana=1;
@@ -143,6 +144,9 @@ public class Manager : MonoBehaviour
 		raycast.GetComponent<arRaycaster>().enabled=false;
 		btns3D[0].SetActive(false);
 		btns3D[1].SetActive(false);
+		btns3D[1].SetActive(false);
+		PF.SetActive(false);
+		groundPlane.SetActive(false);
 		switch (num)
 		{
 		
@@ -205,61 +209,16 @@ public class Manager : MonoBehaviour
 		Mapa2D.SetActive(false);
 		Inicio.SetActive(true);
 		
+		PF.SetActive(false);
+		groundPlane.SetActive(false);
+		
 		ZonaFranca.SetActive(false);
 		gira.enabled=true;
 		
 	}//Fin IRmapa2D
     
     
-	/*
-    
-	public IEnumerator tutorial()
-	{
-		if (tutoestado==true)
-		{
-			raycast.GetComponent<arRaycaster>().enabled=false;
-			btns3D[0].SetActive(false);
-			btns3D[1].SetActive(false);
-			tutoestado=false;
-			if (omi1==0)
-			{
-				Tuto1.SetActive(true);
-			
-			}
-			
-			yield return new WaitForSeconds(5);
-			if (omi2==0)
-			{
-				Tuto1.SetActive(false);
-				Tuto2.SetActive(true);
-			
-			}
-			yield return new WaitForSeconds(5);
-			
-			if (omi3==0)
-			{
-				Tuto2.SetActive(false);
-				Tuto3.SetActive(true);
-			
-			}
-			yield return new WaitForSeconds(10);
-			Tuto3.SetActive(false);
-				yield return new WaitForSeconds(0.00001f);
-				tutoestado=true;
-				btns3D[0].SetActive(true);
-				btns3D[1].SetActive(true);
-			omi1=0;
-			omi2=0;
-			omi3=0;
-				
-			raycast.GetComponent<arRaycaster>().enabled=true;
-			
-			
-			
-		}
-	}
-    
-	*/
+	
 
 
 	public	void Volver2D()
@@ -318,9 +277,12 @@ public class Manager : MonoBehaviour
 	{
 		ventana=3;
 		raycast.SetActive(true);
+		PF.SetActive(true);
+		groundPlane.SetActive(true);
 		raycast.GetComponent<arRaycaster>().enabled=true;
 		btns3D[0].SetActive(true);
 		btns3D[1].SetActive(true);
+		btns3D[2].SetActive(true);
 		VentanaTutorial.SetActive(false);
 		Presionado.IsHolding=false;
 		Mapa2D.SetActive(false);
@@ -478,7 +440,7 @@ public class Manager : MonoBehaviour
 				
 				initialDistance1= Vector2.Distance(origen,dedo.position);
 				
-				nomedi.text=initialDistance1.ToString();
+				
 				
 				
 				if(Mathf.Approximately(initialDistance1,1100))
@@ -514,6 +476,8 @@ public class Manager : MonoBehaviour
 			{
 				var touchZero= Input.GetTouch(0);
 				var touchOne= Input.GetTouch(1);
+				
+				infoEmpresa.SetActive(false);
 
 				//if any one of touchZero or touchOne is cancelled or maybe ended then nothing
 				if(touchZero.phase == TouchPhase.Ended || touchZero.phase == TouchPhase.Canceled||
@@ -586,7 +550,7 @@ public class Manager : MonoBehaviour
 		raycast.SetActive(false);
 		raycast.GetComponent<arRaycaster>().enabled=false;
 		
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 3; i++) {
 			btns3D[i].SetActive(false);
 		}
 		

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+//Joel
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 
@@ -15,7 +17,8 @@ public class arRaycaster : MonoBehaviour {
 	public GameObject objetoIns;
 	public TMP_Text Descripcion;
 	bool activo=false;
-	
+	//joel 
+	private int fingerID = -1;
 	
 	
 	//	[SerializeField] float RotationSpeed = 2f;
@@ -39,6 +42,17 @@ public class arRaycaster : MonoBehaviour {
 	private LineRenderer viewLine;
 	private LineRenderer touchLine;
 	
+	
+	
+	//joel
+	protected void Awake()
+	{
+		#if !UNITY_EDITOR
+		fingerID = 0; 
+        #endif
+	}
+	
+	
 	void Start()
 	{
 		if(arCamera == null)    arCamera = Camera.main;
@@ -55,6 +69,7 @@ public class arRaycaster : MonoBehaviour {
 	}
 	
 	void Update() {
+		
 		
 		Vector3 ubi3= arCamera.transform.position;
 		
@@ -76,13 +91,12 @@ public class arRaycaster : MonoBehaviour {
 			
 		
 		// Touch raycast
-		if (Input.touchCount > 0) {
+		if (Input.touchCount == 1) {
 			Touch touch = Input.GetTouch(0);
 			var touchPositon = touch.position;
 			
 			
-			
-	
+		
 			
 			Ray touchRay = arCamera.ScreenPointToRay(touchPositon);
 			
@@ -93,31 +107,56 @@ public class arRaycaster : MonoBehaviour {
 				touchLine = CreateLine("touchLine",Color.clear);
 				touchLine.SetPosition(0,touchRay.origin - new Vector3(0,0.1f,0));
 				touchLine.SetPosition(1,touchRay.direction*10f);
+				
 				break;
 			case TouchPhase.Ended :
 			case TouchPhase.Canceled :
 				Destroy(touchLine.gameObject,1f);
 				StartCoroutine(DestroyLineSmoothly(touchLine));
+				
 				break;
 			case TouchPhase.Moved :
 				//case TouchPhase.Stationary :
 				touchLine.SetPosition(1,touchRay.direction*10f);
+				
 				break;
 			}
 			
 			
+			/*
 			
-			
+			if (EventSystem.current.IsPointerOverGameObject(fingerID))    // is the touch on the GUI
+			{
+				// GUI Action
+				return;
+			}
+			*/
+					
+			//	else{
 			
 			if (touch.phase == TouchPhase.Began) {
 
+			
+				
+				
+				
 				RaycastHit hitObject;
+				
 				
 		
 				if (Physics.Raycast(touchRay,out hitObject) ) {
 					
+					Descripcion.text= "if del raycast";
 					string nam;
 					nam=hitObject.transform.name;
+					
+					
+					var posicionTouch = touch.position;
+					
+					bool isOverUI= posicionTouch.IsPointOverUIObject;
+					
+					
+					
 					
 					
 					//hitObject.transform.localScale *= 1.2f;
@@ -137,11 +176,7 @@ public class arRaycaster : MonoBehaviour {
 			
 					){
 							
-						//penderPanel=hitObject.transform.GetChild(1).gameObject;
-						//			penderPanel.SetActive(true);
 						
-						//penderPANELsECONDS=hitObject.transform.GetChild(2).gameObject;
-						//penderPANELsECONDS.SetActive(true);
 						
 						if (nam=="BtnAurora"||nam=="BtnAurora1"||nam=="BtnAurora2"||nam=="BtnAurora3"||nam=="BtnAurora4")
 						{
@@ -244,19 +279,9 @@ public class arRaycaster : MonoBehaviour {
 							mana.		EmpresaRay(5);
 	
 
-							//				StartCoroutine(				mana.					Empresa	(5,5));
-							//					mana.BtnAtrasMap.onClick.AddListener(()=> StartCoroutine(mana.Volver3D()));
 						}
 
 
-
-						
-						
-						
-						//			objetoIns=hitObject.transform.GetChild(0).gameObject;
-						//			rb=objetoIns.GetComponent<Rigidbody>();
-						
-						
 						
 						}else  if(activo==false){
 	        	          
@@ -273,21 +298,14 @@ public class arRaycaster : MonoBehaviour {
 					Destroy(touchLine.gameObject,1f);
 					StartCoroutine(DestroyLineSmoothly(touchLine));
 				}
-			}//fin touch began
+			}//fin touch began 
+			//	}// Joel
 		
 		
-			
-			//float X = Input.GetAxis ("Mouse X") * RotationSpeed * Time.fixedDeltaTime;
-			//float y = Input.GetAxis ("Mouse Y") * RotationSpeed * Time.fixedDeltaTime;
-			
 		
-			
-			//	rb.AddTorque (Vector3.down*X);
-			//		rb.AddTorque (Vector3.right*y);
-	
 			
 	
-			}
+		}// fin un dedo
 			
 		
 
