@@ -25,7 +25,7 @@ public class Manager : MonoBehaviour
 	/// <Modelos>
 	
 	public Transform objeto;
-	public Button BtnDispensario;
+
 	
 	
 	/// </Modelos>
@@ -420,7 +420,7 @@ public class Manager : MonoBehaviour
 	private void Update()
 	{
 		
-		Debug.Log(ZonaFranca.transform.position);
+	//	Debug.Log(ZonaFranca.transform.position);
 			
 			
 		if (Input.touchCount ==1)
