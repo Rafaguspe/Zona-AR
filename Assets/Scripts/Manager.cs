@@ -45,8 +45,11 @@ public class Manager : MonoBehaviour
 	
 	UI_HoldButton Presionado;
 
-	public GameObject raycast;
+	public GameObject raycast,VentanaTutorial;
     
+	public Button siguientBTN;
+	
+	int omi=1;
     
     void Start()
 	{
@@ -117,16 +120,72 @@ public class Manager : MonoBehaviour
 		FlechaI.onClick.AddListener(()=>CerrarEmpresaRay());
 	    BuscaPlano.onClick.AddListener(()=>BuscaPlano3d());
 	   
+	   
+		
+	   
+		/*
 	    
-	    
-		
-		
-		
+		btntuto1.onClick.AddListener(()=> omitirIntro(1));
+		btntuto2.onClick.AddListener(()=> omitirIntro(2));
+		btntuto3.onClick.AddListener(()=> omitirIntro(3));
 	
+		*/
 		
-		
+		siguientBTN.onClick.AddListener(()=>omitirIntro(omi));
 		
 	}// fin start
+    
+    
+	void omitirIntro(int num)
+	{
+		VentanaTutorial.SetActive(true);
+		raycast.SetActive(false);
+		raycast.GetComponent<arRaycaster>().enabled=false;
+		btns3D[0].SetActive(false);
+		btns3D[1].SetActive(false);
+		switch (num)
+		{
+		
+		case 1:
+			Tuto1.SetActive(true);
+			Tuto2.SetActive(false);
+			Tuto3.SetActive(false);
+			
+			Debug.Log("Omi es:"+omi);
+			break;
+		
+		
+		case 2:
+			Tuto2.SetActive(true);
+			Tuto1.SetActive(false);
+			Tuto3.SetActive(false);
+			
+			Debug.Log("Omi es:"+omi);
+			break;
+		
+		case 3:
+			Tuto3.SetActive(true);
+			Tuto2.SetActive(false);
+			Tuto1.SetActive(false);
+			siguientBTN.onClick.AddListener(()=>IRmapa3D());
+			Debug.Log("Omi es:"+omi);
+			break;
+		
+		}
+		
+		omi=num+1;
+		
+		if (omi>3)
+		{
+			omi=1;
+			
+		}
+		
+		//IRmapa3D();
+		
+		
+	}
+    
     
     
 	void BuscaPlano3d()
@@ -152,27 +211,55 @@ public class Manager : MonoBehaviour
 	}//Fin IRmapa2D
     
     
+	/*
+    
 	public IEnumerator tutorial()
 	{
 		if (tutoestado==true)
 		{
+			raycast.GetComponent<arRaycaster>().enabled=false;
+			btns3D[0].SetActive(false);
+			btns3D[1].SetActive(false);
 			tutoestado=false;
-			Tuto1.SetActive(true);
-			yield return new WaitForSeconds(3);
-			Tuto1.SetActive(false);
-			Tuto2.SetActive(true);
+			if (omi1==0)
+			{
+				Tuto1.SetActive(true);
+			
+			}
+			
 			yield return new WaitForSeconds(5);
-			Tuto2.SetActive(false);
-			Tuto3.SetActive(true);
+			if (omi2==0)
+			{
+				Tuto1.SetActive(false);
+				Tuto2.SetActive(true);
+			
+			}
+			yield return new WaitForSeconds(5);
+			
+			if (omi3==0)
+			{
+				Tuto2.SetActive(false);
+				Tuto3.SetActive(true);
+			
+			}
 			yield return new WaitForSeconds(10);
 			Tuto3.SetActive(false);
-			yield return new WaitForSeconds(0.00001f);
-			tutoestado=true;
+				yield return new WaitForSeconds(0.00001f);
+				tutoestado=true;
+				btns3D[0].SetActive(true);
+				btns3D[1].SetActive(true);
+			omi1=0;
+			omi2=0;
+			omi3=0;
+				
+			raycast.GetComponent<arRaycaster>().enabled=true;
+			
+			
 			
 		}
 	}
     
-    
+	*/
 
 
 	public	void Volver2D()
@@ -230,11 +317,17 @@ public class Manager : MonoBehaviour
 	public void IRmapa3D()
 	{
 		ventana=3;
+		raycast.SetActive(true);
+		raycast.GetComponent<arRaycaster>().enabled=true;
+		btns3D[0].SetActive(true);
+		btns3D[1].SetActive(true);
+		VentanaTutorial.SetActive(false);
 		Presionado.IsHolding=false;
 		Mapa2D.SetActive(false);
 		infoEmpresa.SetActive(false);
 		ZonaFranca.SetActive(true);
-		Ayuda.onClick.AddListener(()=> StartCoroutine(tutorial()));
+		Ayuda.onClick.AddListener(()=> omitirIntro(1));
+		
 		BtnAtras3d.onClick.AddListener(()=>Iniciox3D());
 		objeto=Dispensario.transform;
 		
