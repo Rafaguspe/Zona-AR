@@ -8,6 +8,7 @@ TagManager:
   - TagPresionado
   - EdificiosBtn
   - TagRay
+  - UI
   layers:
   - Default
   - TransparentFX

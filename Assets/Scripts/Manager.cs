@@ -132,7 +132,7 @@ public class Manager : MonoBehaviour
 	
 		*/
 		
-		siguientBTN.onClick.AddListener(()=>omitirIntro(omi));
+		
 		
 	}// fin start
     
@@ -154,16 +154,19 @@ public class Manager : MonoBehaviour
 			Tuto1.SetActive(true);
 			Tuto2.SetActive(false);
 			Tuto3.SetActive(false);
-			
 			Debug.Log("Omi es:"+omi);
+			
+			siguientBTN.onClick.AddListener(()=>omitirIntro(2));
 			break;
+			
 		
 		
 		case 2:
 			Tuto2.SetActive(true);
 			Tuto1.SetActive(false);
 			Tuto3.SetActive(false);
-			
+			omi=num+1;
+			siguientBTN.onClick.AddListener(()=>omitirIntro(3));
 			Debug.Log("Omi es:"+omi);
 			break;
 		
@@ -177,13 +180,10 @@ public class Manager : MonoBehaviour
 		
 		}
 		
-		omi=num+1;
 		
-		if (omi>3)
-		{
-			omi=1;
-			
-		}
+		
+		
+		
 		
 		//IRmapa3D();
 		
@@ -277,9 +277,9 @@ public class Manager : MonoBehaviour
 	{
 		ventana=3;
 		raycast.SetActive(true);
+		//raycast.GetComponent<arRaycaster>().enabled=true;
 		PF.SetActive(true);
 		groundPlane.SetActive(true);
-		raycast.GetComponent<arRaycaster>().enabled=true;
 		btns3D[0].SetActive(true);
 		btns3D[1].SetActive(true);
 		btns3D[2].SetActive(true);
@@ -483,14 +483,14 @@ public class Manager : MonoBehaviour
 				if(touchZero.phase == TouchPhase.Ended || touchZero.phase == TouchPhase.Canceled||
 					touchOne.phase == TouchPhase.Ended || touchOne.phase == TouchPhase.Canceled)
 				{
-					raycast.GetComponent<arRaycaster>().enabled=true;
+					//			raycast.GetComponent<arRaycaster>().enabled=true;
 					return; //basically do nothing
 
 				}
 
 				if(touchZero.phase == TouchPhase.Began ||touchOne.phase == TouchPhase.Began)
 				{
-					raycast.GetComponent<arRaycaster>().enabled=false;
+					//			raycast.GetComponent<arRaycaster>().enabled=false;
 					initialDistance= Vector2.Distance(touchZero.position,touchOne.position);
 					initialScale= objeto.transform.localScale;
 					Debug.Log("Distancia Inicial:" + initialDistance);
@@ -638,7 +638,7 @@ public class Manager : MonoBehaviour
 	{
 		infoEmpresa3D.SetActive(false);
 		raycast.SetActive(true);
-		raycast.GetComponent<arRaycaster>().enabled=true;
+		//raycast.GetComponent<arRaycaster>().enabled=true;
 
 		Debug.Log(Contenedor.transform.position);
 		Contenedor.transform.position = new	Vector3(3000,1600,0f);

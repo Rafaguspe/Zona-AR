@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 
 
 
-public class arRaycaster : MonoBehaviour {
+public class UIBloquea : MonoBehaviour {
     
     
 
@@ -32,10 +32,7 @@ public class arRaycaster : MonoBehaviour {
 
 	//Agregado por Marlon
 
-	[SerializeField] GraphicRaycaster m_Raycaster;
-	PointerEventData m_PointerEventData;
-	[SerializeField] EventSystem m_EventSystem;
-	[SerializeField] RectTransform canvasRect;
+	
 
 
 	[SerializeField]
@@ -73,10 +70,28 @@ public class arRaycaster : MonoBehaviour {
 		dragging = true;
 	}
 
-	
-	void Update() {
+
+	private bool IsPointerOverUIObject()
+	{
+			Touch touch = Input.GetTouch(0);
+		PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+			eventDataCurrentPosition.position=new Vector2(touch.position.x,touch.position.y);
+		//eventDataCurrentPosition.position=new Vector2(Input.mousePosition.x,Input.mousePosition.y);
+		List<RaycastResult> results= new List<RaycastResult>();
+		EventSystem.current.RaycastAll(eventDataCurrentPosition,results);
+		return results.Count >0;
 		
-		
+	}
+
+
+
+
+
+    // Update is called once per frame
+    void Update()
+	{
+    	
+    	
 		Vector3 ubi3= arCamera.transform.position;
 		
 		string ubi= ubi3.ToString();
@@ -99,7 +114,6 @@ public class arRaycaster : MonoBehaviour {
 		if (Input.touchCount == 1) {
 			Touch touch = Input.GetTouch(0);
 			var touchPositon = touch.position;
-
 
 
 			Ray touchRay = arCamera.ScreenPointToRay(touchPositon);
@@ -126,21 +140,56 @@ public class arRaycaster : MonoBehaviour {
 				break;
 			}
 
-
-
-			if (EventSystem.current.IsPointerOverGameObject(fingerID))    // is the touch on the GUI
+			
+    	
+    	
+    	
+			if (IsPointerOverUIObject())
+		{
+			//Cuando se toca la UI
+			
+			if (Input.touchCount==1 && Input.GetTouch(0).phase== TouchPhase.Began)
 			{
-				// GUI Action
-				Descripcion.text = "hOLA";
+				Descripcion.text=" UI";
+				Debug.Log("IF dentro UI");
+				Destroy(touchLine.gameObject,1f);
+				StartCoroutine(DestroyLineSmoothly(touchLine));
 				return;
-				//Descripcion.text = EventSystem.current.IsPointerOverGameObject(Input.touchCount).ToString();
+			}
+			
+			
+			
+			
+		}// fin is !pointer
+		
+		else
+			{
+			
+			switch (touch.phase)
+			{
+			case TouchPhase.Began:
+				touchLine = CreateLine("touchLine",Color.clear);
+				touchLine.SetPosition(0,touchRay.origin - new Vector3(0,0.1f,0));
+				touchLine.SetPosition(1,touchRay.direction*10f);
+				
+				break;
+			case TouchPhase.Ended :
+			
+			case TouchPhase.Moved :
+				//case TouchPhase.Stationary :
+				touchLine.SetPosition(1,touchRay.direction*10f);
+				
+				break;
 			}
 
-
-            else
-            {
-				//Descripcion.text = "KLK contigo";
-                if (touch.phase == TouchPhase.Began) {
+			
+			
+			// Cuando no se toca la UI
+			if (Input.touchCount==1 && Input.GetTouch(0).phase== TouchPhase.Began)
+			{
+				Debug.Log("IF fuera  UI");
+				
+				//		if (touch.phase == TouchPhase.Began) {
 
 			
 				
@@ -155,17 +204,9 @@ public class arRaycaster : MonoBehaviour {
 					//Descripcion.text= "if del raycast";
 					string nam;
 					nam=hitObject.transform.name;
+					Descripcion.text="No UI";
 					
-					
-				//	var posicionTouch = touch.position;
-					
-					
-					
-					
-					
-					
-					
-					//hitObject.transform.localScale *= 1.2f;
+			
 					if(activo==false&&nam=="BtnAurora" 
 						||activo==false&&nam=="BtnAurora1" 
 						||activo==false&&nam=="BtnAurora2" 
@@ -192,7 +233,7 @@ public class arRaycaster : MonoBehaviour {
 		
 			
 							mana.EmpresaRay(4);
-					}
+						}
 
 						if (nam=="BtnComedor")
 						{
@@ -283,34 +324,34 @@ public class arRaycaster : MonoBehaviour {
 
 
 						
-						}else  if(activo==false){
+					}else  if(activo==false){
 	        	          
-							if(hitObject.transform.name=="canvasInformacion"){
-								penderPanel=hitObject.transform.gameObject;
-								penderPanel.SetActive(false);	
-								//penderPANELsECONDS.SetActive(false);
-								//activo=false;
-							}
+						if(hitObject.transform.name=="canvasInformacion"){
+							penderPanel=hitObject.transform.gameObject;
+							penderPanel.SetActive(false);	
+							//penderPANELsECONDS.SetActive(false);
+							//activo=false;
 						}
+					}
 				}
 				else
 				{
 					Destroy(touchLine.gameObject,1f);
 					StartCoroutine(DestroyLineSmoothly(touchLine));
 				}
-			}//fin touch began 
-            }// Joel
-
-
-
-
-
-        }// fin un dedo
+				//		}//fin touch began 
+				
+			}
 			
-		
-
-
-		// Viewpoint raycast
+			
+			
+			
+			
+		}
+    	
+        
+		}
+    
 		Ray viewRay =arCamera.ViewportPointToRay(new Vector3(0.5f,0.5f,0));
         
 		//Draw ray
@@ -320,34 +361,26 @@ public class arRaycaster : MonoBehaviour {
 		RaycastHit hit;
 		if (Physics.Raycast(viewRay, out hit)) {
 			hit.transform.localScale *= 0.99f;
-		}
+    
+	}//fin Update
+	
+	
+	
+}
 		
-		
-		
-		
-	}// fin Update
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	LineRenderer CreateLine(string name, Color lineColor)
 	{
-	GameObject go = new GameObject(name);
-			LineRenderer line = go.AddComponent<LineRenderer>();
-			line.material = lineMaterial;
-			line.positionCount = 2;
-			line.startWidth = 0.01f;
-			line.endWidth = 0.01f;
-			line.colorGradient.mode = GradientMode.Fixed;
-			line.startColor = lineColor;
-			line.endColor = lineColor;
-			return line;
+		GameObject go = new GameObject(name);
+		LineRenderer line = go.AddComponent<LineRenderer>();
+		line.material = lineMaterial;
+		line.positionCount = 2;
+		line.startWidth = 0.01f;
+		line.endWidth = 0.01f;
+		line.colorGradient.mode = GradientMode.Fixed;
+		line.startColor = lineColor;
+		line.endColor = lineColor;
+		return line;
 
 	}
 	IEnumerator DestroyLineSmoothly(LineRenderer line)
@@ -362,9 +395,6 @@ public class arRaycaster : MonoBehaviour {
 		}
 		Destroy(line.gameObject);
 	}
-	
-	
-	
 	
 	
 }
