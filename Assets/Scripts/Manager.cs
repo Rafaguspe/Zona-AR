@@ -47,7 +47,10 @@ public class Manager : MonoBehaviour
 
 	public GameObject raycast,VentanaTutorial,groundPlane;
     
-	public Button siguientBTN;
+	public Button siguientBTN,bloqueoGira,btngira;
+	public GameObject GOBloqueaGiro;
+	
+	public Button[] btnEmpresas3D;
 	
 	int omi=1;
     
@@ -134,17 +137,31 @@ public class Manager : MonoBehaviour
 		
 		
 		
+		btngira.onClick.AddListener(()=> btnsGirarModelo(1));
+		bloqueoGira.onClick.AddListener(()=> btnsGirarModelo(2));
+		
+		
+		
+		for (int i = 0; i < 8; i++) {
+			int num=i+1;
+			btnEmpresas3D[i].onClick.AddListener(()=> EmpresaRay(num));
+		}
+		
+		
+		
+		
+		
 	}// fin start
     
     
 	void omitirIntro(int num)
 	{
 		VentanaTutorial.SetActive(true);
-		raycast.SetActive(false);
-		raycast.GetComponent<arRaycaster>().enabled=false;
+		ZonaFranca.SetActive(false);
 		btns3D[0].SetActive(false);
 		btns3D[1].SetActive(false);
-		btns3D[1].SetActive(false);
+		btns3D[2].SetActive(false);
+		btns3D[3].SetActive(false);
 		PF.SetActive(false);
 		groundPlane.SetActive(false);
 		switch (num)
@@ -283,6 +300,7 @@ public class Manager : MonoBehaviour
 		btns3D[0].SetActive(true);
 		btns3D[1].SetActive(true);
 		btns3D[2].SetActive(true);
+		btns3D[3].SetActive(true);
 		VentanaTutorial.SetActive(false);
 		Presionado.IsHolding=false;
 		Mapa2D.SetActive(false);
@@ -433,22 +451,16 @@ public class Manager : MonoBehaviour
 			
 			
 			
+			if (!GOBloqueaGiro.active)
+			{
+				
 			
 			// si ese dedo se movio
 			if (dedo.phase == TouchPhase.Moved)
 			{
 				
-				initialDistance1= Vector2.Distance(origen,dedo.position);
-				
-				
-				
-				
-				if(Mathf.Approximately(initialDistance1,1100))
-				{
-					return;// do nothing if it can be ignored where initial distance is very close to zero
-
-				}
-				
+			
+			
 				
 				// roto el objeto en funcion a la posicion en X en la que se movio
 				objeto.transform.Rotate(0f,dedo.deltaPosition.x,0f);
@@ -456,12 +468,7 @@ public class Manager : MonoBehaviour
 				
 			}//si el dedo es movido
 			
-			else
-			{
-			
-			}
-			
-			
+			}// si el bloqueo esta apagado
 			
 		
 		}// si toca con un dedo
@@ -534,10 +541,25 @@ public class Manager : MonoBehaviour
 	}// fin Update
 
 
-	public void GirarModelo()
+	public void btnsGirarModelo(int caso)
 	{
-		gira.enabled=true;
-		objeto.transform.Rotate(0f,1f,0f);
+	
+		switch (caso)
+		{
+		
+		case 1:
+			GOBloqueaGiro.SetActive(true);
+			break;
+			
+		case 2:
+			GOBloqueaGiro.SetActive(false);
+			break;
+		}
+		
+		
+		
+		
+		
 	}// fin Girar Modelo
 
 	
@@ -550,7 +572,7 @@ public class Manager : MonoBehaviour
 		raycast.SetActive(false);
 		raycast.GetComponent<arRaycaster>().enabled=false;
 		
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 4; i++) {
 			btns3D[i].SetActive(false);
 		}
 		
@@ -645,7 +667,7 @@ public class Manager : MonoBehaviour
 		
 		
 		
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 4; i++) {
 			btns3D[i].SetActive(true);
 		}
 		

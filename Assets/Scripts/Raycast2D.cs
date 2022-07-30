@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,9 +30,7 @@ public class Raycast2D : MonoBehaviour
 
         else 
         {
-            raycast3dd.SetActive(true);
-            raycast3dd.GetComponent<arRaycaster>().enabled = false;
-            marco.SetActive(true);
+	        Debug.Log("No presion target");
         }
 
     }
