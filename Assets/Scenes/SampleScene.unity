@@ -6859,6 +6859,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VersionFinalV7
       objectReference: {fileID: 0}
+    - target: {fileID: 1370587876649668693, guid: 10a0ebed235d4d848b644cd51c906672, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10a0ebed235d4d848b644cd51c906672, type: 3}
 --- !u!4 &1025947614 stripped
@@ -9250,8 +9254,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -4.814209, y: 276}
-  m_SizeDelta: {x: -222.5421, y: 357.2576}
+  m_AnchoredPosition: {x: -3.5484, y: 225}
+  m_SizeDelta: {x: -78.8793, y: 357.2576}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1535075715
 GameObject:
