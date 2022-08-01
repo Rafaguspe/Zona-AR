@@ -51,6 +51,7 @@ public class Manager : MonoBehaviour
 	public GameObject GOBloqueaGiro;
 	
 	public Button[] btnEmpresas3D;
+	public GameObject[] identificadores;
 	
 	int omi=1;
     
@@ -113,27 +114,16 @@ public class Manager : MonoBehaviour
 		//	btn3D.onClick.AddListener(() =>StartCoroutine( IRmapa3D()));
 		btn3D.onClick.AddListener(() => IRmapa3D());
 	     btnNom3D.onClick.AddListener(()=> IRmapa3D());
-		//btnNom3D.onClick.AddListener(() => StartCoroutine (IRmapa3D()));
-		//	BtnAtras3d.onClick.AddListener(()=>StartCoroutine(Iniciox3D()));
-		//	BtnAtras3d.onClick.AddListener(()=>Iniciox3D());
-	    //  btn2D.onClick.AddListener(()=> Categoria(1));
-        
+	 
 	  
 			flechaD.onClick.AddListener(()=>EmpresaRay(4));
 		
-		FlechaI.onClick.AddListener(()=>CerrarEmpresaRay());
+		//FlechaI.onClick.AddListener(()=>CerrarEmpresaRay());
 	    BuscaPlano.onClick.AddListener(()=>BuscaPlano3d());
 	   
 	   
 		
-	   
-		/*
-	    
-		btntuto1.onClick.AddListener(()=> omitirIntro(1));
-		btntuto2.onClick.AddListener(()=> omitirIntro(2));
-		btntuto3.onClick.AddListener(()=> omitirIntro(3));
 	
-		*/
 		
 		
 		
@@ -572,17 +562,24 @@ public class Manager : MonoBehaviour
 		raycast.SetActive(false);
 		raycast.GetComponent<arRaycaster>().enabled=false;
 		
+		
 		for (int i = 0; i < 4; i++) {
 			btns3D[i].SetActive(false);
 		}
 		
+		for (int i = 0; i < 8; i++) {
+			identificadores[i].SetActive(false);
+		}
 		
+		
+		FlechaI.onClick.AddListener(()=>CerrarEmpresaRay(emp));
 		
 		infoEmpresa3D.SetActive(true);
 		Debug.Log(Contenedor.transform.position);
 		Contenedor.transform.position = new	Vector3(-200,550,0f);
 		
 		
+		identificadores[emp-1].SetActive(true);
 		
 		switch (emp)
 		{
@@ -656,11 +653,17 @@ public class Manager : MonoBehaviour
 		
 	}//Fin empresa Ray
 
-	public	void CerrarEmpresaRay()
+	public	void CerrarEmpresaRay(int num)
 	{
 		infoEmpresa3D.SetActive(false);
 		raycast.SetActive(true);
 		//raycast.GetComponent<arRaycaster>().enabled=true;
+		
+		for (int i = 0; i < 8; i++) {
+			identificadores[i].SetActive(false);
+		}
+		
+		identificadores[num-1].SetActive(false);
 
 		Debug.Log(Contenedor.transform.position);
 		Contenedor.transform.position = new	Vector3(3000,1600,0f);
