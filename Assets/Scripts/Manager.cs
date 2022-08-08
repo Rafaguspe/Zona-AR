@@ -202,7 +202,7 @@ public class Manager : MonoBehaviour
 	void BuscaPlano3d()
 	{
 		PF.SetActive(true);
-		Marco3d.SetActive(true);
+		//Marco3d.SetActive(true);
 	}
     
     
