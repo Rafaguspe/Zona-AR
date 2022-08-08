@@ -563,7 +563,7 @@ public class Manager : MonoBehaviour
 		raycast.GetComponent<arRaycaster>().enabled=false;
 		
 		
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 3; i++) {
 			btns3D[i].SetActive(false);
 		}
 		
@@ -670,7 +670,7 @@ public class Manager : MonoBehaviour
 		
 		
 		
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 3; i++) {
 			btns3D[i].SetActive(true);
 		}
 		
